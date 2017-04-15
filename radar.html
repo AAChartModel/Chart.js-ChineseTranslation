@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Radar Chart</title>
+    <script src="http://cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.js"></script>
+    <script src="../utils.js"></script>
+    <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="width:40%">
+        <canvas id="canvas"></canvas>
+    </div>
+ 
+    <script>
+    var randomScalingFactor = function() {
+        return Math.round(Math.random() * 100);
+    };
+
+    var color = Chart.helpers.color;
+    var config = {
+        type: 'radar',
+        data: {
+            labels: ["Eating",  "Water", "Sleeping",  "Graphics", "Coding", "Cycling", "Running"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor:"rgba(100,181,198,0.7)", 
+                borderColor: "rgba(100,181,198,0.7)",
+                pointBackgroundColor: "rgba(100,181,198,0.7)",
+                data: [
+                   1,2,3,4,5,6,7,
+                ]
+            }, ]
+        },
+        options: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Chart.js Radar Chart'
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true
+              }
+            }
+        }
+    };
+
+    window.onload = function() {
+        window.myRadar = new Chart(document.getElementById("canvas"), config);
+    };
+
+ 
+
+   
+    </script>
+</body>
+
+</html>
