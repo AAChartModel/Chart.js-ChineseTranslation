@@ -3,7 +3,7 @@
 
 它们通常用于比较两个或多个不同数据集的点。
 
-{％chartjs％}
+```javascript
 {
     “类型”：“雷达”，
     “data”：{
@@ -49,7 +49,7 @@
         }
     }
 }
-{％endchartjs％}
+```
 
 ##使用示例
 ```javascript
