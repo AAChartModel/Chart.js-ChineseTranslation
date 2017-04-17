@@ -1,72 +1,72 @@
-# Mixed Chart Types
+混合图表类型
 
-With Chart.js, it is possible to create mixed charts that are a combination of two or more different chart types. A common example is a bar chart that also includes a line dataset.
+使用Chart.js，可以创建两个或多个不同图表类型的组合的混合图表。一个常见的示例是还包括行数据集的条形图。
 
-Creating a mixed chart starts with the initialization of a basic chart.
-
-```javascript
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  options: options
-});
-```
-
-At this point we have a standard bar chart. Now we need to convert one of the datasets to a line dataset.
+创建混合图表从初始化基本图表开始。
 
 ```javascript
-var mixedChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    datasets: [{
-          label: 'Bar Dataset',
-          data: [10, 20, 30, 40]
-        }, {
-          label: 'Line Dataset',
-          data: [50, 50, 50, 50],
-
-          // Changes this dataset to become a line
-          type: 'line'
-        }],
-    labels: ['January', 'February', 'March', 'April']
-  },
-  options: options
-});
+var myChart = new Chart（ctx，{
+  键入：'bar'，
+  数据：数据，
+  选项：选项
+}）;
 ```
 
-At this point we have a chart rendering how we'd like. It's important to note that the default options for a line chart are not merged in this case. Only the options for the default type are merged in. In this case, that means that the default options for a bar chart are merged because that is the type specified by the `type` field.
+在这一点上，我们有一个标准条形图。现在我们需要将其中一个数据集转换成行数据集。
 
-{% chartjs %}
+```javascript
+var mixedChart = new Chart（ctx，{
+  键入：'bar'，
+  资料：{
+    数据集：[{
+          标签：'Bar Dataset'，
+          资料：[10，20，30，40]
+        }，{
+          标签：“线数据集”，
+          数据：[50，50，50，50]，
+
+          //将此数据集更改为一行
+          输入：'line'
+        }]，
+    标签：['1月'，'2月'，'3月'，'4月'
+  }，
+  选项：选项
+}）;
+```
+
+在这一点上，我们有一个图表渲染我们想要的。请注意，在这种情况下，折线图的默认选项不会合并。只有默认类型的选项才会被合并。在这种情况下，这意味着条形图的默认选项将被合并，因为这是`type`字段指定的类型。
+
+{％chartjs％}
 {
-  "type": "bar",
-  "data": {
-    "labels": [
-      "January", 
-      "February", 
-      "March", 
-      "April"
-    ],
-    "datasets": [{
-      "label": "Bar Dataset",
-      "data": [10, 20, 30, 40],
-      "borderColor": "rgb(255, 99, 132)",
-      "backgroundColor": "rgba(255, 99, 132, 0.2)"
-    }, {
-      "label": "Line Dataset",
-      "data": [50, 50, 50, 50],
-      "type": "line",
-      "fill": false,
-      "borderColor": "rgb(54, 162, 235)"
-    }]
-  },
-  "options": {
-    "scales": {
-      "yAxes": [{
-        "ticks": {
-          "beginAtZero": true
-        }
-      }]
-    }
-  }
+  “type”：“bar”，
+  “data”：{
+    “标签”： [
+      “一月”，
+      “二月”，
+      “游行”，
+      “四月”
+    ]，
+    “datasets”：[{
+      “label”：“Bar Dataset”，
+      “资料”：[10，20，30，40]
+      “borderColor”：“rgb（255，99，132）”，
+      “backgroundColor”：“rgba（255，99，132，0.2）”
+    }，{
+      “label”：“行数据集”，
+      “资料”：[50，50，50，50]，
+      “type”：“line”，
+      “填”：假，
+      “borderColor”：“rgb（54，162，235）”
+    }]
+  }，
+  “选项”：{
+    “量表”：{
+      “yAxes”：[{
+        “ticks”：{
+          “beginAtZero”：true
+        }
+      }]
+    }
+  }
 }
-{% endchartjs %}
+{％endchartjs％}

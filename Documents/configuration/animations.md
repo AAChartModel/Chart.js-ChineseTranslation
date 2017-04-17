@@ -1,96 +1,96 @@
-# Animations
+＃动画
 
-Chart.js animates charts out of the box. A number of options are provided to configure how the animation looks and how long it takes
+Chart.js开箱即用动画图表。提供了许多选项来配置动画的外观以及花费的时间
 
-## Animation Configuration
+##动画配置
 
-The following animation options are available. The global options for are defined in `Chart.defaults.global.animation`.
+以下动画选项可用。全局选项在“Chart.defaults.global.animation”中定义。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `duration` | `Number` | `1000` | The number of milliseconds an animation takes.
-| `easing` | `String` | `'easeOutQuart'` | Easing function to use. [more...](#easing)
-| `onProgress` | `Function` | `null` | Callback called on each step of an animation. [more...](#animation-callbacks)
-| `onComplete` | `Function` | `null` | Callback called at the end of an animation. [more...](#animation-callbacks)
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `duration` | `Number` | `1000` |动画所需的毫秒数。
+| `easing` | `String` | ``easeOutQuart'` |缓解功能使用。 [更多...]（＃宽松）
+| `onProgress` | `功能`| `null` |回调调用动画的每一步。 [更多...]（＃animation-callbacks）
+| `onComplete` | `功能`| `null` |回调在动画结束时调用。 [更多...]（＃animation-callbacks）
 
-## Easing
- Available options are:
-* `'linear'`
-* `'easeInQuad'`
-* `'easeOutQuad'`
-* `'easeInOutQuad'`
-* `'easeInCubic'`
-* `'easeOutCubic'`
-* `'easeInOutCubic'`
-* `'easeInQuart'`
-* `'easeOutQuart'`
-* `'easeInOutQuart'`
-* `'easeInQuint'`
-* `'easeOutQuint'`
-* `'easeInOutQuint'`
-* `'easeInSine'`
-* `'easeOutSine'`
-* `'easeInOutSine'`
-* `'easeInExpo'`
-* `'easeOutExpo'`
-* `'easeInOutExpo'`
-* `'easeInCirc'`
-* `'easeOutCirc'`
-* `'easeInOutCirc'`
-* `'easeInElastic'`
-* `'easeOutElastic'`
-* `'easeInOutElastic'`
-* `'easeInBack'`
-* `'easeOutBack'`
-* `'easeInOutBack'`
-* `'easeInBounce'`
-* `'easeOutBounce'`
-* `'easeInOutBounce'`
+缓解
+ 可用选项有：
+*“线性”
+*`'easeInQuad'`
+*`'easeOutQuad'`
+*`'easeInOutQuad'`
+*``easeInCubic``
+*“easeOutCubic”
+*`'easeInOutCubic'`
+*`'easeInQuart'`
+*`'easeOutQuart``
+*`'easeInOutQuart'`
+*`'easeInQuint``
+*``easeOutQuint``
+*``easeInOutQuint``
+*`'easeInSine'`
+*“easeOutSine”
+*“easeInOutSine”
+*“easeInExpo”
+*“easeOutExpo”
+*`'easeInOutExpo'`
+*`'easeInCirc'`
+*`'easeOutCirc'`
+*`'easeInOutCirc'`
+*“easyInElastic”
+*“easeOutElastic”
+*“easeInOutElastic”
+*“easeInBack”
+*“easeOutBack”
+*`'easeInOutBack'`
+*“easeInBounce”
+*``easeOutBounce``
+*`'easeInOutBounce'`
 
-See [Robert Penner's easing equations](http://robertpenner.com/easing/).
+参见[Robert Penner的宽松方程式]（http://robertpenner.com/easing/）。
 
-## Animation Callbacks
+##动画回调
 
-The `onProgress` and `onComplete` callbacks are useful for synchronizing an external draw to the chart animation. The callback is passed a `Chart.Animation` instance:
+`onProgress`和`onComplete`回调对于将外部绘制同步到图表动画是非常有用的。回调传递一个`Chart.Animation`实例：
 
 ```javascript
 {
-    // Chart object
-    chart: Chart,
+    //图表对象
+    图：图表，
 
-    // Current Animation frame number
-    currentStep: Number,
+    //当前动画帧号
+    currentStep：Number，
 
-    // Number of animation frames
-    numSteps: Number,
+    //动画帧数
+    numSteps：数字，
 
-    // Animation easing to use
-    easing: String,
+    //动画轻松使用
+    宽松：字符串，
 
-    // Function that renders the chart
-    render: Function,
+    //渲染图表的函数
+    渲染：功能，
 
-    // User callback
-    onAnimationProgress: Function,
+    //用户回调
+    onAnimationProgress：功能，
 
-    // User callback
-    onAnimationComplete: Function
+    //用户回调
+    onAnimationComplete：功能
 }
 ```
 
-The following example fills a progress bar during the chart animation.
+以下示例在图表动画期间填充进度条。
 ```javascript
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        animation: {
-            onProgress: function(animation) {
-                progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
-            }
-        }
-    }
-});
+var chart = new Chart（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：{
+        动画： {
+            onProgress：function（animation）{
+                progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+            }
+        }
+    }
+}）;
 ```
 
-Another example usage of these callbacks can be found on [Github](https://github.com/chartjs/Chart.js/blob/master/samples/animation/progress-bar.html): this sample displays a progress bar showing how far along the animation is.
+这些回调的另一个例子可以在[Github]（https://github.com/chartjs/Chart.js/blob/master/samples/animation/progress-bar.html）中找到：该示例显示一个进度条，显示动画有多远。

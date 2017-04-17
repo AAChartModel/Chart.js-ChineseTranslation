@@ -1,249 +1,257 @@
-# Line
-A line chart is a way of plotting data points on a line. Often, it is used to show trend data, or the comparison of two data sets.
+＃行
+线图是绘制线上数据点的一种方式。通常，它用于显示趋势数据或两个数据集的比较。
 
-{% chartjs %}
+{％chartjs％}
 {
-    "type": "line",
-    "data": {
-        "labels": [
-            "January", 
-            "February", 
-            "March", 
-            "April", 
-            "May", 
-            "June",
-            "July"
-        ],
-        "datasets": [{
-            "label": "My First Dataset",
-            "data": [65, 59, 80, 81, 56, 55, 40],
-            "fill": false,
-            "borderColor": "rgb(75, 192, 192)",
-            "lineTension": 0.1
-        }]
-    },
-    "options": {
+    “type”：“line”，
+    “data”：{
+        “标签”： [
+            “一月”，
+            “二月”，
+            “游行”，
+            “四月”，
+            “可能”，
+            “六月”，
+            “七月”
+        ]，
+        “datasets”：[{
+            “label”：“我的第一个数据集”，
+            “资料”：[65,59,80,81,56,55,40]，
+            “填”：假，
+            “borderColor”：“rgb（75,192,192）”，
+            “lineTension”：0.1
+        }]
+    }，
+    “选项”：{
 
-    }
+    }
 }
-{% endchartjs %}
+{％endchartjs％}
 
-## Example Usage
+##使用示例
 ```javascript
-var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: options
-});
+var myLineChart = new Chart（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：选项
+}）;
 ```
 
-## Dataset Properties
+##数据集属性
 
-The line chart allows a number of properties to be specified for each dataset. These are used to set display properties for a specific dataset. For example, the colour of a line is generally set this way.
+折线图允许为每个数据集指定多个属性。这些用于设置特定数据集的显示属性。例如，通常以这种方式设置一行的颜色。
 
-All point* properties can be specified as an array. If these are set to an array value, the first value applies to the first point, the second value to the second point, and so on.
+所有点*属性都可以指定为数组。如果这些值设置为数组值，则第一个值适用于第一个点，第二个值应用于第二个点，依此类推。
 
-| Name | Type | Description
+|名称|类型|描述
 | ---- | ---- | -----------
-| `label` | `String` | The label for the dataset which appears in the legend and tooltips.
-| `xAxisID` | `String` | The ID of the x axis to plot this dataset on. If not specified, this defaults to the ID of the first found x axis
-| `yAxisID` | `String` | The ID of the y axis to plot this dataset on. If not specified, this defaults to the ID of the first found y axis.
-| `backgroundColor` | `Color/Color[]` | The fill color under the line. See [Colors](../general/colors.md#colors)
-| `borderColor` | `Color/Color[]` | The color of the line. See [Colors](../general/colors.md#colors)
-| `borderWidth` | `Number/Number[]` | The width of the line in pixels.
-| `borderDash` | `Number[]` | Length and spacing of dashes. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash)
-| `borderDashOffset` | `Number` | Offset for line dashes. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)
-| `borderCapStyle` | `String` | Cap style of the line. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap)
-| `borderJoinStyle` | `String` | Line joint style. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin)
-| `cubicInterpolationMode` | `String` | Algorithm used to interpolate a smooth curve from the discrete data points. [more...](#cubicInterpolationMode)
-| `fill` | `Boolean/String` | How to fill the area under the line. [more...](#fill)
-| `lineTension` | `Number` | Bezier curve tension of the line. Set to 0 to draw straightlines. This option is ignored if monotone cubic interpolation is used.
-| `pointBackgroundColor` | `Color/Color[]` | The fill color for points.
-| `pointBorderColor` | `Color/Color[]` | The border color for points.
-| `pointBorderWidth` | `Number/Number[]` | The width of the point border in pixels.
-| `pointRadius` | `Number/Number[]` | The radius of the point shape. If set to 0, the point is not rendered.
-| `pointStyle` | `String/String[]/Image/Image[]` | Style of the point. [more...](#pointStyle)
-| `pointHitRadius` | `Number/Number[]` | The pixel size of the non-displayed point that reacts to mouse events.
-| `pointHoverBackgroundColor` | `Color/Color[]` | Point background color when hovered.
-| `pointHoverBorderColor` | `Color/Color[]` | Point border color when hovered.
-| `pointHoverBorderWidth` | `Number/Number[]` | Border width of point when hovered.
-| `pointHoverRadius` | `Number/Number[]` | The radius of the point when hovered.
-| `showLine` | `Boolean` | If false, the line is not drawn for this dataset.
-| `spanGaps` | `Boolean` | If true, lines will be drawn between points with no or null data. If false, points with `NaN` data will create a break in the line
-| `steppedLine` | `Boolean/String` | If the line is shown as a stepped line. [more...](#stepped-line)
+| `label` | `String` |数据集的标签出现在图例和工具提示中。
+| `xAxisID` | `String` |打印此数据集的x轴的ID。如果未指定，则默认为第一个找到的x轴的ID
+| `yAxisID` | `String` |要绘制此数据集的y轴的ID。如果未指定，则默认为首次找到的y轴的ID。
+| `backgroundColor` | `颜色/颜色[]`|填充颜​​色下线。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderColor` | `颜色/颜色[]`|线的颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderWidth` | `Number / Number []`|行的宽度（以像素为单位）。
+| `borderDash` | `Number []`|破折号的长度和间距。请参阅[MDN]（https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash）
+| `borderDashOffset` | `Number` |线条破折号偏移。请参阅[MDN]（https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset）
+| `borderCapStyle` | `String` |帽子风格的线条。请参阅[MDN]（https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap）
+| `borderJoinStyle` | `String` |线接合风格。请参阅[MDN]（https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin）
+| `cubicInterpolationMode` | `String` |用于从离散数据点插入平滑曲线的算法。 [更多...]（＃cubicInterpolationMode）
+| `fill` | `Boolean / String` |如何填写下面的区域。 [更多...]（＃fill）
+| `lineTension` | `Number` |贝塞尔曲线张力线。设置为0以绘制直线。如果使用单调三次插值，则忽略此选项。
+| `pointBackgroundColor` | `颜色/颜色[]`|点的填充颜色
+| `pointBorderColor` | `颜色/颜色[]`|点的边框颜色。
+| `pointBorderWidth` | `Number / Number []`|点边框的宽度（以像素为单位）。
+| `pointRadius` | `Number / Number []`|点形状的半径。如果设置为0，则不渲染点。
+| `pointStyle` | `String / String [] / Image / Image []`|风格的点。 [更多...]（＃pointStyle）
+| `pointHitRadius` | `Number / Number []`|反映鼠标事件的非显示点的像素大小。
+| `pointHoverBackgroundColor` | `颜色/颜色[]`|当悬停时指示背景颜色。
+| `pointHoverBorderColor` | `颜色/颜色[]`|悬停时点边框颜色。
+| `pointHoverBorderWidth` | `Number / Number []`|悬停时点的边界宽度。
+| `pointHoverRadius` | `Number / Number []`|悬停点的半径。
+| `showLine` | `Boolean` |如果为false，则不为此数据集绘制该行。
+| `spanGaps` | `Boolean` |如果为真，则将在无数据或零数据的点之间绘制行。如果为false，则使用“NaN”数据的点将在行中创建一个中断
+| `stepLine` | `Boolean / String` |如果线显示为阶梯线。 [more ...]（＃step-line）
 
 ### cubicInterpolationMode
-The following interpolation modes are supported:
-* 'default'
-* 'monotone'. 
+支持以下插补模式：
+*'默认'
+*'单调'。
 
-The 'default' algorithm uses a custom weighted cubic interpolation, which produces pleasant curves for all types of datasets. 
+“默认”算法使用自定义加权立方插值，为所有类型的数据集生成令人愉快的曲线。
 
-The 'monotone' algorithm is more suited to `y = f(x)` datasets : it preserves monotonicity (or piecewise monotonicity) of the dataset being interpolated, and ensures local extremums (if any) stay at input data points. 
+“单调”算法更适合于“y = f（x）”数据集：它保留正在插值的数据集的单调性（或分段单调性），并确保局部极值（如果有的话）保留在输入数据点。
 
-If left untouched (`undefined`), the global `options.elements.line.cubicInterpolationMode` property is used.
+如果保持不变（`undefined`），则使用全局`options.elements.line.cubicInterpolationMode`属性。
 
-### fill
-If `true`, fill the area under the line. The line is filled to the baseline. If the y axis has a 0 value, the line is filled to that point. If the axis has only negative values, the line is filled to the highest value. If the axis has only positive values, it is filled to the lowest value.
+＃＃＃ 填
+如果是“true”，请填写下面的区域。该行被填充到基线。如果y轴为0，则填充该线。如果轴只有负值，则该行将被填充到最高值。如果轴只有正值，则它被填充到最低值。
 
-String values to fill to specific locations are:
-* `'zero'`
-* `'top'`
-* `'bottom'`
+字符串值为fi
+
+要填充到特定位置的字符串值是：
+*''零'
+*“顶”
+*“底”
 
 ### pointStyle
-The style of point. Options are:
-* 'circle'
-* 'cross'
-* 'crossRot'
-* 'dash'. 
-* 'line'
-* 'rect'
-* 'rectRounded'
-* 'rectRot'
-* 'star'
-* 'triangle'
+点的风格。选项是：
+*'圈'
+*'交叉'
+*'crossRot'
+*'dash'。
+*'线'
+*'rect'
+*'rectRounded'
+*'rectRot'
+*'明星'
+* '三角形'
 
-If the option is an image, that image is drawn on the canvas using [drawImage](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage).
+如果该选项是图像，则使用[drawImage]（https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage）在画布上绘制该图像。
 
 ### Stepped Line
-The following values are supported for `steppedLine`:
-* `false`:  No Step Interpolation (default)
-* `true`: Step-before Interpolation (eq. 'before')
-* `'before'`: Step-before Interpolation
-* `'after'`: Step-after Interpolation
+“stepsLine”支持以下值：
+*`false`：无步骤插值（默认）
+*`true`：插值之前（eq。'before'之前）
+*`'before'`：插值之前的步骤
+*`'after'`：逐步插值
 
-If the `steppedLine` value is set to anything other than false, `lineTension` will be ignored.
+如果“stepsLine”值设置为false以外的任何值，则“lineTension”将被忽略。
 
-## Configuration Options
+##配置选项
 
-The line chart defines the following configuration options. These options are merged with the global chart configuration options, `Chart.defaults.global`, to form the options passed to the chart.
+折线图定义了以下配置选项。这些选项与全局图表配置选项“Chart.defaults.global”合并，以形成传递到图表的选项。
 
-| Name | Type | Default | Description
+|名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
-| `showLines` | `Boolean` | `true` | If false, the lines between points are not drawn.
-| `spanGaps` | `Boolean` | `false` | If false, NaN data causes a break in the line.
+| `showLines` | `Boolean` | `true` |如果为false，则不绘制点之间的线。
+| `spanGaps` | `Boolean` | `false` |如果是虚假的，NaN数据会导致行中断。
 
-## Default Options
+##默认选项
 
-It is common to want to apply a configuration setting to all created line charts. The global line chart settings are stored in `Chart.defaults.line`. Changing the global options only affects charts created after the change. Existing charts are not changed.
+通常要将配置设置应用于所有创建的折线图。全局折线图设置存储在“Chart.defaults.line”中。更改全局选项仅影响更改后创建的图表。现有图表不变。
 
-For example, to configure all line charts with `spanGaps = true` you would do:
+例如，要使用`spanGaps = true'配置所有折线图，您可以：
 ```javascript
 Chart.defaults.line.spanGaps = true;
 ```
 
-## Data Structure
+＃＃ 数据结构
 
-The `data` property of a dataset for a line chart can be passed in two formats. 
+折线图的数据集的“data”属性可以以两种格式传递。
 
-### Number[]
+###号码[]
 ```javascript
-data: [20, 10]
+资料：[20，10]
 ```
 
-When the `data` array is an array of numbers, the x axis is generally a [category](../axes/cartesian/category.md#Category Axis). The points are placed onto the axis using their position in the array.
+当`data`数组是一个数字数组时，x轴通常是一个[category]（../轴/ cartesian / category.md＃类别轴）。使用它们在阵列中的位置将点放置在轴上。
 
-### Point[]
+### Point []
 
 ```javascript
-data: [{
-        x: 10,
-        y: 20
-    }, {
-        x: 15,
-        y: 10
-    }]
+数据：[{
+        x：10，
+        y：20
+    }，{
+        x：15，
+        y：10
+    }]
 ```
 
-This alternate is used for sparse datasets, such as those in [scatter charts](./scatter.md#scatter-chart). Each data point is specified using an object containing `x` and `y` properties.
+此替代项用于稀疏数据集，例如[散点图]（./ scatter.md＃scatter-chart）中的数据集。每个数据点都使用包含“x”和“y”属性的对象进行指定。
 
-# Stacked Area Chart
+＃堆积区域图
 
-Line charts can be configured into stacked area charts by changing the settings on the y axis to enable stacking. Stacked area charts can be used to show how one data trend is made up of a number of smaller pieces.
+可以通过更改y轴上的设置来将折线图配置为堆叠区域图，以启用堆叠。堆叠区域图可用于显示一个数据趋势如何由多个较小的部分组成。
 
 ```javascript
-var stackedLine = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        scales: {
-            yAxes: [{
-                stacked: true
-            }]
-        }
-    }
-});
+var stackedLine = new Chart（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：{
+        比例：{
+            yAxes：[{
+                堆积：真的
+            }]
+        }
+    }
+}）;
 ```
 
-# High Performance Line Charts
+＃高性能线图
 
-When charting a lot of data, the chart render time may start to get quite large. In that case, the following strategies can be used to improve performance.
+当绘制大量数据时，图表渲染时间可能开始变得相当大。在这种情况下，可以使用以下策略来提高性能。
 
-## Data Decimation
+##数据抽取
 
-Decimating your data will achieve the best results. When there is a lot of data to display on the graph, it doesn't make sense to show tens of thousands of data points on a graph that is only a few hundred pixels wide.
+取消您的数据将取得最佳效果。当图形上显示的数据很多时，在图形上只显示数百个像素宽的数以万计的数据点是没有意义的。
 
-There are many approaches to data decimation and selection of an algorithm will depend on your data and the results you want to achieve. For instance, [min/max](http://digital.ni.com/public.nsf/allkb/F694FFEEA0ACF282862576020075F784) decimation will preserve peaks in your data but could require up to 4 points for each pixel. This type of decimation would work well for a very noisy signal where you need to see data peaks.
+数据抽取有许多方法，并且算法的选择将取决于您的数据和要实现的结果。例如，[min / max]（http://digital.ni.com/public.nsf/allkb/F694FFEEA0ACF282862576020075F784）抽取将保留数据中的峰值，但每个像素最多可能需要4个点。这种类型的抽取对于您需要查看数据峰值的非常嘈杂的信号将会很好地工作。
 
-## Disable Bezier Curves
+##禁用贝塞尔曲线
 
-If you are drawing lines on your chart, disabling bezier curves will improve render times since drawing a straight line is more performant than a bezier curve.
+如果您在图表上绘制线条，则禁用贝塞尔曲线将提高渲染时间，因为绘制直线比贝塞尔曲线更加有效。
 
-To disable bezier curves for an entire chart:
+要禁用整个图表的贝塞尔曲线：
 
 ```javascript
-new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        elements: {
-            line: {
-                tension: 0, // disables bezier curves
-            }
-        }
-    }
-});
+新图表（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：{
+        元素：{
+            行：{
+                张力：0，//禁止贝塞尔曲线
+            }
+        }
+    }
+}）;
 ```
 
-## Draw Line Drawing
+绘制线图
 
-If you have a lot of data points, it can be more performant to disable rendering of the line for a dataset and only draw points. Doing this means that there is less to draw on the canvas which will improve render performance.
+如果你有很多数据点，那么禁止渲染数据集的行并且只绘制点，这样做可以更有效率。这样做意味着画布上的绘制效果会降低，从而提高渲染性能。
 
-To disable lines:
+禁用行：
 
 ```javascript
-new Chart(ctx, {
-    type: 'line',
-    data: {
-        datasets: [{
-            showLine: false, // disable for a single dataset
-        }]
-    },
-    options: {
-        showLines: false, // disable for all datasets
-    }
-});
+新图表（ctx，{
+    输入：'line'，
+    资料：{
+        数据集：[{
+            showLine：false，//禁用单个数据集
+        }]
+    }，
+    选项：{
+        showLines：false，//禁用所有数据集
+    }
+}）;
 ```
 
-## Disable Animations
+##禁用动画
 
-If your charts have long render times, it is a good idea to disable animations. Doing so will mean that the chart needs to only be rendered once during an update instead of multiple times. This will have the effect of reducing CPU usage and improving general page performance.
+如果您的图表具有较长的渲染时间，则禁用动画是一个好主意。这样做意味着图表只需要在更新期间呈现一次，而不是多次。这将具有减少CPU使用率和提高一般页面性能的效果。
 
-To disable animations
+ 
+
+##禁用动画
+
+如果您的图表具有较长的渲染时间，则禁用动画是一个好主意。 这样做意味着图表只需要在更新期间呈现一次，而不是多次。 这将具有减少CPU使用率和提高一般页面性能的效果。
+
+禁用动画
 
 ```javascript
-new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        animation: {
-            duration: 0, // general animation time
-        },
-        hover: {
-            animationDuration: 0, // duration of animations when hovering an item
-        },
-        responsiveAnimationDuration: 0, // animation duration after a resize
-    }
-});
+新图表（ctx，{
+     输入：'line'，
+     数据：数据，
+     选项：{
+         动画： {
+             持续时间：0，//一般动画时间
+         }，
+         悬停：{
+             animationDuration：0，//悬停某个项目时的动画持续时间
+         }，
+         respondAnimationDuration：0，//调整大小后的动画持续时间
+     }
+}）;
 ```

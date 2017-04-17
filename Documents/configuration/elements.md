@@ -1,69 +1,69 @@
-# Elements
+＃元素
 
-While chart types provide settings to configure the styling of each dataset, you sometimes want to style **all datasets the same way**. A common example would be to stroke all of the bars in a bar chart with the same colour but change the fill per dataset. Options can be configured for four different types of elements: **[arc](#arc-configuration)**, **[lines](#line-configuration)**, **[points](#point-configuration)**, and **[rectangles](#rectangle-configuration)**. When set, these options apply to all objects of that type unless specifically overridden by the configuration attached to a dataset.
+虽然图表类型提供了配置每个数据集的样式的设置，但有时您需要以同样的方式对所有数据集进行样式**。一个常见的例子是用相同颜色描绘条形图中的所有条，但是更改每个数据集的填充。可以为四种不同类型的元素配置选项：** [arc]（＃arc-configuration）**，** [lines]（＃line-configuration）**，** [points]（＃point-configuration） **和** [矩形]（＃rectangle-configuration）**。设置时，这些选项适用于该类型的所有对象，除非被附加到数据集的配置专门覆盖。
 
-## Global Configuration
+##全局配置
 
-The element options can be specified per chart or globally. The global options for elements are defined in `Chart.defaults.global.elements`. For example, to set the border width of all bar charts globally you would do:
+可以按图表或全局指定元素选项。元素的全局选项在“Chart.defaults.global.elements”中定义。例如，要设置全局所有条形图的边框宽度，您可以执行以下操作：
 
 ```javascript
 Chart.defaults.global.elements.rectangle.borderWidth = 2;
 ```
 
-## Point Configuration
-Point elements are used to represent the points in a line chart or a bubble chart.
+##点配置
+点元素用于表示折线图或气泡图中的点。
 
-Global point options: `Chart.defaults.global.elements.point`
+全局点选项：`Chart.defaults.global.elements.point`
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `radius` | `Number` | `3` | Point radius.
-| `pointStyle` | `String` | `circle` | Point style.
-| `backgroundColor` | `Color` | `'rgba(0,0,0,0.1)'` | Point fill color.
-| `borderWidth` | `Number` | `1` | Point stroke width.
-| `borderColor` | `Color` | `'rgba(0,0,0,0.1)'` | Point stroke color.
-| `hitRadius` | `Number` | `1` | Extra radius added to point radius for hit detection.
-| `hoverRadius` | `Number` | `4` | Point radius when hovered.
-| `hoverBorderWidth` | `Number` | `1` | Stroke width when hovered.
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `radius` | `Number` | `3` |点半径
+| `pointStyle` | `String` | `circle` |点样式
+| `backgroundColor` | `颜色`| ``rgba（0,0,0,0.1）'`|点填充颜色。
+| `borderWidth` | `Number` | `1` |点行程宽度。
+| `borderColor` | `颜色`| ``rgba（0,0,0,0.1）'`|点笔画颜色。
+| `hitRadius` | `Number` | `1` |额外半径添加到点半径，用于命中检测。
+| `hoverRadius` | `Number` | `4` |悬停时的点半径
+| `hoverBorderWidth` | `Number` | `1` |徘徊时的行程宽度。
 
-## Line Configuration
-Line elements are used to represent the line in a line chart.
+##线路配置
+线条元素用于表示折线图中的线条。
 
-Global line options: `Chart.defaults.global.elements.line`
+全局行选项：`Chart.defaults.global.elements.line`
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `tension` | `Number` | `0.4` | Bézier curve tension (`0` for no Bézier curves).
-| `backgroundColor` | `Color` | `'rgba(0,0,0,0.1)'` | Line fill color.
-| `borderWidth` | `Number` | `3` | Line stroke width.
-| `borderColor` | `Color` | `'rgba(0,0,0,0.1)'` | Line stroke color.
-| `borderCapStyle` | `String` | `'butt'` | Line cap style (see [MDN](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap)).
-| `borderDash` | `Array` | `[]` | Line dash (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash)).
-| `borderDashOffset` | `Number` | `0` | Line dash offset (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)).
-| `borderJoinStyle` | `String` | `'miter` | Line join style (see [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin)).
-| `capBezierPoints` | `Boolean` | `true` | `true` to keep Bézier control inside the chart, `false` for no restriction.
-| `fill` | `Boolean/String` | `true` | Fill location: `'zero'`, `'top'`, `'bottom'`, `true` (eq. `'zero'`) or `false` (no fill).
-| `stepped` | `Boolean` | `false` | `true` to show the line as a stepped line (`tension` will be ignored).
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `紧张'| `Number` | `0.4` |贝塞尔曲线张力（没有贝塞尔曲线'0'）。
+| `backgroundColor` | `颜色`| ``rgba（0,0,0,0.1）'`|线条填充颜色。
+| `borderWidth` | `Number` | `3` |线行宽。
+| `borderColor` | `颜色`| ``rgba（0,0,0,0.1）'`|线笔画颜色。
+| `borderCapStyle` | `String` | ``butt`` |线帽样式（请参阅[MDN]（https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap））。
+| `borderDash` | `Array` | `[]`|换行符（请参阅[MDN]（https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash））。
+| `borderDashOffset` | `Number` | `0` |换行符偏移量（参见[MDN]（https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset））。
+| `borderJoinStyle` | `String` | `'miter` |行连接样式（请参阅[MDN]（https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin））。
+| `capBezierPoints` | `Boolean` | `true` | “true”将Bézier控件保留在图表中，`false`没有限制。
+| `fill` | `Boolean / String` | `true` |填写位置：“零”，“顶”，“底”，“真”（等式“零”）或“假”（无填）。
+| `step` | `Boolean` | `false` | “真”将线显示为分阶线（“张力”将被忽略）。
 
-## Rectangle Configuration
-Rectangle elements are used to represent the bars in a bar chart.
+##矩形配置
+矩形元素用于表示条形图中的条形。
 
-Global rectangle options: `Chart.defaults.global.elements.rectangle`
+全局矩形选项：`Chart.defaults.global.elements.rectangle`
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `backgroundColor` | `Color` | `'rgba(0,0,0,0.1)'` | Bar fill color.
-| `borderWidth` | `Number` | `0` | Bar stroke width.
-| `borderColor` | `Color` | `'rgba(0,0,0,0.1)'` | Bar stroke color.
-| `borderSkipped` | `String` | `'bottom'` | Skipped (excluded) border: `'bottom'`, `'left'`, `'top'` or `'right'`.
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `backgroundColor` | `颜色`| ``rgba（0,0,0,0.1）'`|酒吧填色。
+| `borderWidth` | `Number` | `0` |行程宽度。
+| `borderColor` | `颜色`| ``rgba（0,0,0,0.1）'`|酒吧中风色。
+| `borderSkipped` | `String` | `'bottom'` |跳过（不包括）边界：“底部”，“左”，“顶”或“右”。
 
-## Arc Configuration
-Arcs are used in the polar area, doughnut and pie charts.
+##弧配置
+圆弧用于极地，圆环和饼图。
 
-Global arc options: `Chart.defaults.global.elements.arc`.
+全局弧选项：`Chart.defaults.global.elements.arc`。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `backgroundColor` | `Color` | `'rgba(0,0,0,0.1)'` | Arc fill color.
-| `borderColor` | `Color` | `'#fff'` | Arc stroke color.
-| `borderWidth`| `Number` | `2` | Arc stroke width.
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `backgroundColor` | `颜色`| ``rgba（0,0,0,0.1）'`|弧填充颜色。
+| `borderColor` | `颜色`| ``＃fff'` |弧笔画颜色。
+| `borderWidth` | `Number` | `2` |电弧行程宽度。

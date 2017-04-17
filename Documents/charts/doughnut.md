@@ -1,101 +1,101 @@
-# Doughnut and Pie
-Pie and doughnut charts are probably the most commonly used charts. They are divided into segments, the arc of each segment shows the proportional value of each piece of data.
+＃甜甜圈和馅饼
+饼图和甜甜圈图可能是最常用的图表。它们分为段，每段的弧显示每条数据的比例值。
 
-They are excellent at showing the relational proportions between data.
+他们非常优秀的显示数据之间的关系比例。
 
-Pie and doughnut charts are effectively the same class in Chart.js, but have one different default value - their `cutoutPercentage`. This equates what percentage of the inner should be cut out. This defaults to `0` for pie charts, and `50` for doughnuts.
+饼图和甜甜圈图在Chart.js中实际上是同一个类，但是有一个不同的默认值 - 它们的“chopPercentage”。这等于应该削减内部的百分比。饼图默认为0，甜甜圈为50。
 
-They are also registered under two aliases in the `Chart` core. Other than their different default value, and different alias, they are exactly the same.
+它们也在“Chart”核心中的两个别名下注册。除了不同的默认值和不同的别名，它们是完全一样的。
 
-{% chartjs %}
+{％chartjs％}
 {
-    "type": "doughnut",
-    "data": {
-        "labels": [
-            "Red",
-            "Blue",
-            "Yellow",
-        ],
-        "datasets": [{
-            "label": "My First Dataset",
-            "data": [300, 50, 100],
-            "backgroundColor": [
-                "rgb(255, 99, 132)",
-                "rgb(54, 162, 235)",
-                "rgb(255, 205, 86)",
-            ]
-        }]
-    },
+    “type”：“甜甜圈”，
+    “data”：{
+        “标签”： [
+            “红”，
+            “蓝色”，
+            “黄色”，
+        ]，
+        “datasets”：[{
+            “label”：“我的第一个数据集”，
+            “资料”：[300,50,100]
+            “背景颜色”： [
+                “rgb（255，99，132）”，
+                “rgb（54，162，235）”，
+                “rgb（255，205，86）”，
+            ]
+        }]
+    }，
 }
-{% endchartjs %}
+{％endchartjs％}
 
-## Example Usage
+##使用示例
 
 ```javascript
-// For a pie chart
-var myPieChart = new Chart(ctx,{
-    type: 'pie',
-    data: data,
-    options: options
-});
+//对于饼图
+var myPieChart = new Chart（ctx，{
+    输入：'pie'，
+    数据：数据，
+    选项：选项
+}）;
 ```
 
 ```javascript
-// And for a doughnut chart
-var myDoughnutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: data,
-    options: options
-});
+//和一个甜甜圈图表
+var myDoughnutChart = new Chart（ctx，{
+    类型：'甜甜圈'，
+    数据：数据，
+    选项：选项
+}）;
 ```
 
-## Dataset Properties
+##数据集属性
 
-The doughnut/pie chart allows a number of properties to be specified for each dataset. These are used to set display properties for a specific dataset. For example, the colour of a the dataset's arc are generally set this way.
+甜甜圈/饼图允许为每个数据集指定多个属性。这些用于设置特定数据集的显示属性。例如，数据集弧的颜色通常是这样设置的。
 
-| Name | Type | Description
+|名称|类型|描述
 | ---- | ---- | -----------
-| `label` | `String` | The label for the dataset which appears in the legend and tooltips.
-| `backgroundColor` | `Color[]` | The fill color of the arcs in the dataset. See [Colors](../general/colors.md#colors)
-| `borderColor` | `Color[]` | The border color of the arcs in the dataset. See [Colors](../general/colors.md#colors)
-| `borderWidth` | `Number[]` | The border width of the arcs in the dataset.
-| `hoverBackgroundColor` | `Color[]` | The fill colour of the arcs when hovered.
-| `hoverBorderColor` | `Color[]` | The stroke colour of the arcs when hovered.
-| `hoverBorderWidth` | `Number[]` | The stroke width of the arcs when hovered.
+| `label` | `String` |数据集的标签出现在图例和工具提示中。
+| `backgroundColor` | `颜色[]`|数据集中圆弧的填充颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderColor` | `颜色[]`|数据集中弧线的边框颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderWidth` | `Number []`|数据集中弧线的边框宽度。
+| `hoverBackgroundColor` | `颜色[]`|悬停时圆弧的填充颜色。
+| `hoverBorderColor` | `颜色[]`|徘徊时弧线的笔画颜色。
+| `hoverBorderWidth` | `Number []`|悬停时弧线的行程宽度。
 
-## Config Options
+##配置选项
 
-These are the customisation options specific to Pie & Doughnut charts. These options are merged with the global chart configuration options, and form the options of the chart.
+这些是Pie＆Donut图表特有的定制选项。这些选项与全局图配置选项合并，并形成图表的选项。
 
-| Name | Type | Default | Description
+|名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
-| `cutoutPercentage` | `Number` | `50` - for doughnut, `0` - for pie | The percentage of the chart that is cut out of the middle.
-| `rotation` | `Number` | `-0.5 * Math.PI` | Starting angle to draw arcs from.
-| `circumference` | `Number` | `2 * Math.PI` | Sweep to allow arcs to cover
-| `animation.animateRotate` | `Boolean` | `true` | If true, the chart will animate in with a rotation animation. This property is in the `options.animation` object.
-| `animation.animateScale` | `Boolean` | `false` | If true, will animate scaling the chart from the center outwards.
+| `chopPercentage` | `Number` | `50` - 甜甜圈，`0` - 为馅饼|从中间切出的图表的百分比。
+| `rotation` | `Number` | `-0.5 * Math.PI` |起弧角度来绘制弧线。
+| “周长”| `Number` | `2 * Math.PI` |扫掠以允许弧覆盖
+| `animation.animateRotate` | `Boolean` | `true` |如果为true，图表将使用旋转动画进行动画处理。该属性位于`options.animation`对象中。
+| `animation.animateScale` | `Boolean` | `false` |如果为真，将从中心向外将图表缩放。
 
-## Default Options
+##默认选项
 
-We can also change these default values for each Doughnut type that is created, this object is available at `Chart.defaults.doughnut`. Pie charts also have a clone of these defaults available to change at `Chart.defaults.pie`, with the only difference being `cutoutPercentage` being set to 0.
+我们还可以为创建的每个Donut类型更改这些默认值，该对象在`Chart.defaults.doughnut`中可用。饼图还可以使用这些默认值的克隆，可以在“Chart.defaults.pie”中进行更改，唯一的区别就是将“chopPercentage”设置为0。
 
-## Data Structure
+＃＃ 数据结构
 
-For a pie chart, datasets need to contain an array of data points. The data points should be a number, Chart.js will total all of the numbers and calculate the relative proportion of each.
+对于饼图，数据集需要包含一组数据点。数据点应该是一个数字，Chart.js将总计所有数字，并计算每个数据的相对比例。
 
-You also need to specify an array of labels so that tooltips appear correctly
+您还需要指定一组标签，以便工具提示正确显示
 
 ```javascript
 data = {
-    datasets: [{
-        data: [10, 20, 30]
-    }],
+    数据集：[{
+        数据：[10，20，30]
+    }]，
 
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-        'Red',
-        'Yellow',
-        'Blue'
-    ]
+    //当悬停不同的弧时，这些标签显示在图例和工具提示中
+    标签： [
+        '红'，
+        '黄色'，
+        '蓝色'
+    ]
 };
 ```

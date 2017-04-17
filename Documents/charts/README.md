@@ -8,4 +8,4 @@ Chart.js comes with built-in chart types:
 * [doughnut and pie](./doughnut.md)
 * [bubble](./bubble.md)
 
-To create a new chart type, see the [developer notes](../developers/charts.md#new-charts)
+要创建新的图表类型，请参阅[开发人员笔记](../developers/charts.md#new-charts)

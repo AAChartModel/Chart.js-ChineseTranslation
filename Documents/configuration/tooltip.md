@@ -1,293 +1,278 @@
-# Tooltips
+＃工具提示
 
-## Tooltip Configuration
+##工具提示配置
 
-The tooltip configuration is passed into the `options.tooltips` namespace. The global options for the chart tooltips is defined in `Chart.defaults.global.tooltips`.
+工具提示配置被传递到`options.tooltips`命名空间。图表工具提示的全局选项在“Chart.defaults.global.tooltips”中定义。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `enabled` | `Boolean` | `true` | Are tooltips enabled
-| `custom` | `Function` | `null` | See [custom tooltip](#custom-tooltips) section.
-| `mode` | `String` | `'nearest'` | Sets which elements appear in the tooltip. [more...](../general/interactions/modes.md#interaction-modes).
-| `intersect` | `Boolean` | `true` | if true, the tooltip mode applies only when the mouse position intersects with an element. If false, the mode will be applied at all times.
-| `position` | `String` | `'average'` | The mode for positioning the tooltip. [more...](#position-modes)
-| `callbacks` | `Object` | | See the [callbacks section](#tooltip-callbacks)
-| `itemSort` | `Function` | | Sort tooltip items. [more...](#sort-callback)
-| `filter` | `Function` | | Filter tooltip items. [more...](#filter-callback)
-| `backgroundColor` | Color | `'rgba(0,0,0,0.8)'` | Background color of the tooltip.
-| `titleFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | title font
-| `titleFontSize` | `Number` | `12` | Title font size
-| `titleFontStyle` | `String` | `'bold'` | Title font style
-| `titleFontColor` | Color | `'#fff'` | Title font color
-| `titleSpacing` | `Number` | `2` | Spacing to add to top and bottom of each title line.
-| `titleMarginBottom` | `Number` | `6` | Margin to add on bottom of title section.
-| `bodyFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | body line font
-| `bodyFontSize` | `Number` | `12` | Body font size
-| `bodyFontStyle` | `String` | `'normal'` | Body font style
-| `bodyFontColor` | Color | `'#fff'` | Body font color
-| `bodySpacing` | `Number` | `2` | Spacing to add to top and bottom of each tooltip item.
-| `footerFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | footer font
-| `footerFontSize` | `Number` | `12` | Footer font size
-| `footerFontStyle` | `String` | `'bold'` | Footer font style
-| `footerFontColor` | Color | `'#fff'` | Footer font color
-| `footerSpacing` | `Number` | `2` | Spacing to add to top and bottom of each fotter line.
-| `footerMarginTop` | `Number` | `6` | Margin to add before drawing the footer.
-| `xPadding` | `Number` | `6` | Padding to add on left and right of tooltip.
-| `yPadding` | `Number` | `6` | Padding to add on top and bottom of tooltip.
-| `caretPadding` | `Number` | `2` | Extra distance to move the end of the tooltip arrow away from the tooltip point.
-| `caretSize` | `Number` | `5` | Size, in px, of the tooltip arrow.
-| `cornerRadius` | `Number` | `6` | Radius of tooltip corner curves.
-| `multiKeyBackground` | Color | `'#fff'` | Color to draw behind the colored boxes when multiple items are in the tooltip
-| `displayColors` | `Boolean` | `true` | if true, color boxes are shown in the tooltip
-| `borderColor` | Color | `'rgba(0,0,0,0)'` | Color of the border
-| `borderWidth` | `Number` | `0` | Size of the border
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `enabled` | `Boolean` | `true` |启用工具提示
+| `custom` | `功能`| `null` |请参阅[自定义工具提示]（＃自定义工具提示）部分。
+| `mode` | `String` | “最近”设置工具提示中出现的元素。 [more ...]（../ general / interactions / modes.md＃interaction-modes）。
+| `intersect` | `Boolean` | `true` |如果为true，则工具提示模式仅在鼠标位置与元素相交时才适用。如果为false，该模式将随时应用。
+| `position` | `String` | `'average'`|定位工具提示的模式。 [更多...]（＃位置模式）
+| `callbacks` | `Object` | |参见[callbacks部分]（＃tooltip-callbacks）
+| `itemSort` | `功能`| |排序工具提示项。 [更多...]（＃sort-callback）
+| `filter` | `功能`| |过滤工具提示项。 [more ...]（＃filter-callback）
+| `backgroundColor` |颜色| ``rgba（0,0,0,0.8）'`|背景颜色的工具提示。
+| `titleFontFamily` | `String` | '''Helvetica Neue'，'Helvetica'，'Arial'，sans-serif“`|标题字体
+| `titleFontSize` | `Number` | `12` |标题字体大小
+| `titleFontStyle` | `String` | `'bold'` |标题字体样式
+| `titleFontColor` |颜色| ``＃fff'` |标题字体颜色
+| `titleSpacing` | `Number` | `2` |间距添加到每个标题行的顶部和底部。
+| `titleMarginBottom` | `Number` | `6` |标题部分的底部添加保证金。
+| `bodyFontFamily` | `String` | '''Helvetica Neue'，'Helvetica'，'Arial'，sans-serif“`|身体线字体
+| `bodyFontSize` | `Number` | `12` |身体字体大小
+| `bodyFontStyle` | `String` | ``正常'`|身体字型
+| `bodyFontColor` |颜色| ``＃fff'` |正文字体颜色
+| `bodySpacing` | `Number` | `2` |间距添加到每个工具提示项的顶部和底部。
+| `footerFontFamily` | `String` | '''Helvetica Neue'，'Helvetica'，'Arial'，sans-serif“`|页脚字体
+| `footerFontSize` | `Number` | `12` |页脚字体大小
+| `footerFontStyle` | `String` | `'bold'` |页脚字型
+| `footerFontColor` |颜色| ``＃fff'` |页脚字体颜色
+| `footerSpacing` | `Number` | `2` |间距增加到每一条直线的顶部和底部。
+| “footerMarginTop”| `Number` | `6` |绘制页脚之前添加的边距。
+| `xPadding` | `Number` | `6` |填充在工具提示的左侧和右侧添加。
+| `yPadding` | `Number` | `6` |填充以添加工具提示的顶部和底部。
+| `caretPadding` | `Number` | `2` |额外距离将工具提示箭头的末端移开工具提示点。
+| `caretSize` | `Number` | `5` |大小，以px为单位的工具提示箭头。
+| `cornerRadius` | `Number` | `6` |工具提示角曲线半径。
+| `multiKeyBackground` |颜色| ``＃fff'` |当多个项目位于工具提示中时，颜色会在彩色框后面绘制
+| `displayColors` | `Boolean` | `true` |如果为真，则工具提示中会显示颜色框
+| `borderColor` |颜色| ``rgba（0,0,0,0）'`|边框颜色
+| `borderWidth` | `Number` | `0` |边界大小
 
-### Position Modes
- Possible modes are:
-* 'average'
-* 'nearest'
+###位置模式
+ 可能的模式有：
+* '平均'
+*'最近'
 
-'average' mode will place the tooltip at the average position of the items displayed in the tooltip. 'nearest' will place the tooltip at the position of the element closest to the event position.
+“平均”模式将工具提示放在工具提示中显示的项目的平均位置。 'nearest'将把工具提示放在离事件位置最近的元素的位置。
 
-New modes can be defined by adding functions to the Chart.Tooltip.positioners map.
+可以通过向Chart.Tooltip.positioners映射添加函数来定义新模式。
 
-### Sort Callback
+###排序回调
 
-Allows sorting of [tooltip items](#chart-configuration-tooltip-item-interface). Must implement at minimum a function that can be passed to [Array.prototype.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).  This function can also accept a third parameter that is the data object passed to the chart.
+允许对[工具提示项目]进行排序（＃chart-configuration-tooltip-item-interface）。必须至少实现一个可以传递给[Array.prototype.sort]（https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort）的函数。此函数也可以接受传递给图表的数据对象的第三个参数。
 
-### Filter Callback
+###过滤回调
 
-Allows filtering of [tooltip items](#chart-configuration-tooltip-item-interface). Must implement at minimum a function that can be passed to [Array.prototype.filter](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter). This function can also accept a second parameter that is the data object passed to the chart.
+允许过滤[工具提示项目]（＃chart-configuration-tooltip-item-interface）。必须至少实现一个可以传递给[Array.prototype.filter]（https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter）的函数。此函数也可以接受传递给图表的数据对象的第二个参数。
 
-## Tooltip Callbacks
+##工具提示回调
 
-The tooltip label configuration is nested below the tooltip configuration using the `callbacks` key. The tooltip has the following callbacks for providing text. For all functions, 'this' will be the tooltip object created from the Chart.Tooltip constructor.
+工具提示标签配置使用`callbacks`键嵌套在工具提示配置下方。工具提示具有以下提供文本的回调。对于所有函数，“this”将是从Chart.Tooltip构造函数创建的工具提示对象。
 
-All functions are called with the same arguments: a [tooltip item](#chart-configuration-tooltip-item-interface) and the data object passed to the chart. All functions must return either a string or an array of strings. Arrays of strings are treated as multiple lines of text.
+使用相同的参数调用所有函数：a [tooltip item]（＃chart-configuration-tooltip-item-interface）和传递给图表的数据对象。所有函数必须返回字符串或字符串数​​组。字符串的数组被视为多行文本。
 
-| Name | Arguments | Description
+|名称|参数|描述
 | ---- | --------- | -----------
-| `beforeTitle` | `Array[tooltipItem], data` | Returns the text to render before the title.
-| `title` | `Array[tooltipItem], data` | Returns text to render as the title of the tooltip.
-| `afterTitle` | `Array[tooltipItem], data` | Returns text to render after the title.
-| `beforeBody` | `Array[tooltipItem], data` | Returns text to render before the body section.
-| `beforeLabel` | `tooltipItem, data` | Returns text to render before an individual label. This will be called for each item in the tooltip.
-| `label` | `tooltipItem, data` | Returns text to render for an individual item in the tooltip.
-| `labelColor` | `tooltipItem, chart` | Returns the colors to render for the tooltip item. [more...](#label-color-callback)
-| `afterLabel` | `tooltipItem, data` | Returns text to render after an individual label.
-| `afterBody` | `Array[tooltipItem], data` | Returns text to render after the body section
-| `beforeFooter` | `Array[tooltipItem], data` | Returns text to render before the footer section.
-| `footer` | `Array[tooltipItem], data` | Returns text to render as the footer of the tooltip.
-| `afterFooter` | `Array[tooltipItem], data` | Text to render after the footer section
+| `beforeTitle` | `Array [tooltipItem]，data` |返回标题前要呈现的文字。
+| `title` | `Array [tooltipItem]，data` |返回要作为工具提示的标题呈现的文本。
+| `afterTitle` | `Array [tooltipItem]，data` |返回标题后呈现的文本。
+| `beforeBody` | `Array [tooltipItem]，data` |返回在body部分之前呈现的文本。
+| `beforeLabel` | `tooltipItem，data` |返回在单个标签之前呈现的文本。这将为工具提示中的每个项目调用。
+| `label` | `tooltipItem，data` |返回在工具提示中为单个项目呈现的文本。
+| `labelColor` | `tooltipItem，chart` |返回要为工具提示项目呈现的颜色。 [更多...]（＃label-color-callback）
+| `afterLabel` | `tooltipItem，data` |返回在单个标签之后呈现的文本。
+| `afterBody` | `Array [tooltipItem]，data` |返回在body部分后渲染的文本
+| `beforeFooter` | `Array [tooltipItem]，data` |返回在页脚部分之前呈现的文本。
+| `footer` | `Array [tooltipItem]，data` |返回文本以呈现为工具提示的页脚。
+| `afterFooter` | `Array [tooltipItem]，data` |在页脚部分后面渲染的文字
 
-### Label Color Callback
+###标签颜色回调
 
-For example, to return a red box for each item in the tooltip you could do:
+例如，要为工具提示中的每个项目返回一个红色框，您可以执行以下操作：
 ```javascript
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        tooltips: {
-            callbacks: {
-                labelColor: function(tooltipItem, chart) {
-                    return {
-                        borderColor: 'rgb(255, 0, 0)',
-                        backgroundColor: 'rgb(255, 0, 0)'
-                    }
-                }
-            }
-        }
-    }
-});
+var chart = new Chart（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：{
+        工具提示：{
+            回调：{
+                labelColor：function（tooltipItem，chart）{
+                    返回{
+                        borderColor：'rgb（255，0，0）'，
+                        backgroundColor：'rgb（255，0，0）'
+                    }
+                }
+            }
+        }
+    }
+}）;
 ```
 
 
-### Tooltip Item Interface
+###工具提示项目界面
 
-The tooltip items passed to the tooltip callbacks implement the following interface.
+传递给工具提示回调的工具提示项实现以下界面。
 
 ```javascript
 {
-    // X Value of the tooltip as a string
-    xLabel: String,
+    // X工具提示的值作为字符串
+    xLabel：String，
 
-    // Y value of the tooltip as a string
-    yLabel: String,
+    //工具提示的Y值作为字符串
+    yLabel：String，
 
-    // Index of the dataset the item comes from
-    datasetIndex: Number,
+    //项目来源的数据集的索引
+    datasetIndex：Number，
 
-    // Index of this data item in the dataset
-    index: Number,
+    //数据集中此数据项的索引
+    索引号：
 
-    // X position of matching point
-    x: Number,
+    //匹配点的X位置
+    x：数字，
 
-    // Y position of matching point
-    y: Number,
+    // Y位置的匹配点
+    y：数字，
 }
 ```
+##工具提示回调
 
-## External (Custom) Tooltips
+工具提示标签配置使用`callbacks`键嵌套在工具提示配置下方。工具提示具有以下提供文本的回调。对于所有函数，“this”将是从Chart.Tooltip构造函数创建的工具提示对象。
 
-Custom tooltips allow you to hook into the tooltip rendering process so that you can render the tooltip in your own custom way. Generally this is used to create an HTML tooltip instead of an oncanvas one. You can enable custom tooltips in the global or chart configuration like so:
+使用相同的参数调用所有函数：a [tooltip item]（＃chart-configuration-tooltip-item-interface）和传递给图表的数据对象。所有函数必须返回字符串或字符串数​​组。字符串的数组被视为多行文本。
 
+|名称|参数|描述
+| ---- | --------- | -----------
+| `beforeTitle` | `Array [tooltipItem]，data` |返回标题前要呈现的文字。
+| `title` | `Array [tooltipItem]，data` |返回要作为工具提示的标题呈现的文本。
+| `afterTitle` | `Array [tooltipItem]，data` |返回标题后呈现的文本。
+| `beforeBody` | `Array [tooltipItem]，data` |返回在body部分之前呈现的文本。
+| `beforeLabel` | `tooltipItem，data` |返回在单个标签之前呈现的文本。这将为工具提示中的每个项目调用。
+| `label` | `tooltipItem，data` |返回在工具提示中为单个项目呈现的文本。
+| `labelColor` | `tooltipItem，chart` |返回要为工具提示项目呈现的颜色。 [更多...]（＃label-color-callback）
+| `afterLabel` | `tooltipItem，data` |返回在单个标签之后呈现的文本。
+| `afterBody` | `Array [tooltipItem]，data` |返回在body部分后渲染的文本
+| `beforeFooter` | `Array [tooltipItem]，data` |返回在页脚部分之前呈现的文本。
+| `footer` | `Array [tooltipItem]，data` |返回文本以呈现为工具提示的页脚。
+| `afterFooter` | `Array [tooltipItem]，data` |在页脚部分后面渲染的文字
+
+###标签颜色回调
+
+例如，要为工具提示中的每个项目返回一个红色框，您可以执行以下操作：
 ```javascript
-var myPieChart = new Chart(ctx, {
-    type: 'pie',
-    data: data,
-    options: {
-        tooltips: {
-            custom: function(tooltipModel) {
-                // Tooltip Element
-                var tooltipEl = document.getElementById('chartjs-tooltip');
-
-                // Create element on first render
-                if (!tooltipEl) {
-                    tooltipEl = document.createElement('div');
-                    tooltipEl.id = 'chartjs-tooltip';
-                    tooltipEl.innerHTML = "<table></table>"
-                    document.body.appendChild(tooltipEl);
-                }
-
-                // Hide if no tooltip
-                if (tooltipModel.opacity === 0) {
-                    tooltipEl.style.opacity = 0;
-                    return;
-                }
-
-                // Set caret Position
-                tooltipEl.classList.remove('above', 'below', 'no-transform');
-                if (tooltipModel.yAlign) {
-                    tooltipEl.classList.add(tooltipModel.yAlign);
-                } else {
-                    tooltipEl.classList.add('no-transform');
-                }
-
-                function getBody(bodyItem) {
-                    return bodyItem.lines;
-                }
-
-                // Set Text
-                if (tooltipModel.body) {
-                    var titleLines = tooltipModel.title || [];
-                    var bodyLines = tooltipModel.body.map(getBody);
-
-                    var innerHtml = '<thead>';
-
-                    titleLines.forEach(function(title) {
-                        innerHtml += '<tr><th>' + title + '</th></tr>';
-                    });
-                    innerHtml += '</thead><tbody>';
-
-                    bodyLines.forEach(function(body, i) {
-                        var colors = tooltipModel.labelColors[i];
-                        var style = 'background:' + colors.backgroundColor;
-                        style += '; border-color:' + colors.borderColor;
-                        style += '; border-width: 2px';
-                        var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
-                        innerHtml += '<tr><td>' + span + body + '</td></tr>';
-                    });
-                    innerHtml += '</tbody>';
-
-                    var tableRoot = tooltipEl.querySelector('table');
-                    tableRoot.innerHTML = innerHtml;
-                }
-
-                // `this` will be the overall tooltip
-                var position = this._chart.canvas.getBoundingClientRect();
-
-                // Display, position, and set styles for font
-                tooltipEl.style.opacity = 1;
-                tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
-                tooltipEl.style.top = position.top + tooltipModel.caretY + 'px';
-                tooltipEl.style.fontFamily = tooltipModel._fontFamily;
-                tooltipEl.style.fontSize = tooltipModel.fontSize;
-                tooltipEl.style.fontStyle = tooltipModel._fontStyle;
-                tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
-            }
-        }
-    }
-});
+var chart = new Chart（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：{
+        工具提示：{
+            回调：{
+                labelColor：function（tooltipItem，chart）{
+                    返回{
+                        borderColor：'rgb（255，0，0）'，
+                        backgroundColor：'rgb（255，0，0）'
+                    }
+                }
+            }
+        }
+    }
+}）;
 ```
 
-See `samples/tooltips/line-customTooltips.html` for examples on how to get started.
 
-## Tooltip Model
-The tooltip model contains parameters that can be used to render the tooltip.
+###工具提示项目界面
+
+传递给工具提示回调的工具提示项实现以下界面。
 
 ```javascript
 {
-    // The items that we are rendering in the tooltip. See Tooltip Item Interface section
-    dataPoints: TooltipItem[],
+    // X工具提示的值作为字符串
+    xLabel：String，
 
-    // Positioning
-    xPadding: Number,
-    yPadding: Number,
-    xAlign: String,
-    yAlign: String,
+    //工具提示的Y值作为字符串
+    yLabel：String，
 
-    // X and Y properties are the top left of the tooltip
-    x: Number,
-    y: Number,
-    width: Number,
-    height: Number,
-    // Where the tooltip points to
-    caretX: Number,
-    caretY: Number,
+    //项目来源的数据集的索引
+    datasetIndex：Number，
 
-    // Body
-    // The body lines that need to be rendered
-    // Each pbject contains 3 parameters
-    // before: String[] // lines of text before the line with the color square
-    // lines: String[], // lines of text to render as the main item with color square
-    // after: String[], // lines of text to render after the main lines
-    body: Object[],
-    // lines of text that appear after the title but before the body
-    beforeBody: String[],
-    // line of text that appear after the body and before the footer
-    afterBody: String[],
-    bodyFontColor: Color,
-    _bodyFontFamily: String,
-    _bodyFontStyle: String,
-    _bodyAlign: String,
-    bodyFontSize: Number,
-    bodySpacing: Number,
+    //数据集中此数据项的索引
+    索引号：
 
-    // Title
-    // lines of text that form the title
-    title: String[],
-    titleFontColor: Color,
-    _titleFontFamily: String,
-    _titleFontStyle: String,
-    titleFontSize: Number,
-    _titleAlign: String,
-    titleSpacing: Number,
-    titleMarginBottom: Number,
+    //匹配点的X位置
+    x：数字，
 
-    // Footer
-    // lines of text that form the footer
-    footer: String[],
-    footerFontColor: Color,
-    _footerFontFamily: String,
-    _footerFontStyle: String,
-    footerFontSize: Number,
-    _footerAlign: String,
-    footerSpacing: Number,
-    footerMarginTop: Number,
+    // Y位置的匹配点
+    y：数字，
+}
+```...```
+有关如何开始的示例，请参阅`samples / tooltips / line-customTooltips.html`。
 
-    // Appearance
-    caretSize: Number,
-    cornerRadius: Number,
-    backgroundColor: Color,
+##工具提示模型
+工具提示模型包含可用于呈现工具提示的参数。
 
-    // colors to render for each item in body[]. This is the color of the squares in the tooltip
-    labelColors: Color[],
+```javascript
+{
+    //我们在工具提示中呈现的项目。请参阅工具提示项目界面部分
+    dataPoints：TooltipItem []，
 
-    // 0 opacity is a hidden tooltip
-    opacity: Number,
-    legendColorBackground: Color,
-    displayColors: Boolean,
+    //定位
+    xPadding：数字，
+    yPadding：数量，
+    xAlign：String，
+    yAlign：String，
+
+    // X和Y属性是工具提示的左上角
+    x：数字，
+    y：数字，
+    width：Number，
+    身高：数量，
+    //工具提示指向的位置
+    caretX：数量，
+    carety：数字，
+
+    // 身体
+    //需要呈现的正文行
+    //每个pbject包含3个参数
+    // before：String [] //行之前的文本行与颜色正方形
+    // lines：String []，//要渲染的文本行作为带有正方形的主要项目
+    // after：String []，//在主行后面渲染的文本行
+    body：Object []，
+    //出现在标题之后但在正文之前的文本行
+    beforeBody：String []，
+    //出现在正文后面的文本行
+    afterBody：String []，
+    bodyFontColor：颜色，
+    _bodyFontFamily：String，
+    _bodyFontStyle：String，
+    _bodyAlign：String，
+    bodyFontSize：Number，
+    bodySpacing：Number，
+
+    //标题
+    //形成标题的文本行
+    title：String []，
+    titleFontColor：Color，
+    _titleFontFamily：String，
+    _titleFontStyle：String，
+    titleFontSize：Number，
+    _titleAlign：String，
+    titleSpacing：Number，
+    titleMarginBottom：Number，
+
+    //页脚
+    //形成页脚的文本行
+    footer：String []，
+    footerFontColor：颜色，
+    _footerFontFamily：String，
+    _footerFontStyle：String，
+    footerFontSize：Number，
+    _footerAlign：String，
+    footerSpacing：Number，
+    footerMarginTop：Number，
+
+    //外观
+    caretSize：数字，
+    cornerRadius：Number，
+    backgroundColor：颜色，
+
+    //为body []中的每个项目呈现颜色。这是工具提示中的正方形的颜色
+    labelColors：Color []，
+
+    // 0 opacity是一个隐藏的工具提示
+    不透明度：数字，
+    legendColorBackground：颜色，
+    displayColors：Boolean，
 }
 ```

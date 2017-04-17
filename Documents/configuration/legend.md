@@ -1,166 +1,181 @@
-# Legend Configuration
+＃图例配置
 
-The chart legend displays data about the datasets that area appearing on the chart.
+图表图例显示有关图表上出现的区域的数据集的数据。
 
-## Configuration options
-The legend configuration is passed into the `options.legend` namespace. The global options for the chart legend is defined in `Chart.defaults.global.legend`.
+##配置选项
+legend配置被传递到`options.legend`命名空间。图表图例的全局选项在“Chart.defaults.global.legend”中定义。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `display` | `Boolean` | `true` | is the legend shown
-| `position` | `String` | `'top'` | Position of the legend. [more...](#position)
-| `fullWidth` | `Boolean` | `true` | Marks that this box should take the full width of the canvas (pushing down other boxes). This is unlikely to need to be changed in day-to-day use.
-| `onClick` | `Function` | | A callback that is called when a click event is registered on a label item 
-| `onHover` | `Function` | | A callback that is called when a 'mousemove' event is registered on top of a label item
-| `reverse` | `Boolean` | `false` | Legend will show datasets in reverse order.
-| `labels` | `Object` | | See the [Legend Label Configuration](#legend-label-configuration) section below.
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `display` | `Boolean` | `true` |是显示的传奇
+| `position` | `String` | `'top'` |图例的位置[更多...]（＃位置）
+| `fullWidth` | `Boolean` | `true` |标记这个框应该占据画布的整个宽度（按下其他框）。这在日常使用中不太可能需要改变。
+| `onClick` | `功能`| |点击事件在标签项上注册时调用的回调
+| `onHover` | `功能`| |在“mousemove”事件注册在标签项上时调用的回调
+| `reverse` | `Boolean` | `false` | Legend将以相反的顺序显示数据集。
+| `标签`| `Object` | |请参阅下面的[图例标签配置]（＃legend-label-configuration）部分。
 
-## Position
-Position of the legend. Options are:
-* `'top'`
-* `'left'`
-* `'bottom'`
-* `'right'`
+##位置
+图例的位置选项是：
+*“顶”
+*`'左''
+*“底”
+*“对”
 
-## Legend Label Configuration
+##图例标签配置
 
-The legend label configuration is nested below the legend configuration using the `labels` key.
+图例标签配置使用`labels`键嵌套在图例配置下方。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `boxWidth` | `Number` | `40` | width of coloured box
-| `fontSize` | `Number` | `12` | font size of text
-| `fontStyle` | `String` | `'normal'` | font style of text
-| `fontColor` | Color | `'#666'` | Color of text
-| `fontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | Font family of legend text.
-| `padding` | `Number` | `10` | Padding between rows of colored boxes.
-| `generateLabels` | `Function` | | Generates legend items for each thing in the legend. Default implementation returns the text + styling for the color box. See [Legend Item](#chart-configuration-legend-item-interface) for details.
-| `filter` | `Function` | `null` | Filters legend items out of the legend. Receives 2 parameters, a [Legend Item](#chart-configuration-legend-item-interface) and the chart data.
-| `usePointStyle` | `Boolean` | `false` | Label style will match corresponding point style (size is based on fontSize, boxWidth is not used in this case).
+|名称|类型|默认|描述
+| ----- | ---- | -------- | -----------
+| `boxWidth` | `Number` | `40` |彩盒宽度
+| `fontSize` | `Number` | `12` |文字的字体大小
+| `fontStyle` | `String` | ``正常'`|文字的字型
+| `fontColor` |颜色| `'＃666'` |文字颜色
+| `fontFamily` | `String` | '''Helvetica Neue'，'Helvetica'，'Arial'，sans-serif“`|字体系列的图例文字。
+| `padding` | `Number` | `10` |彩色盒子之间的填充。
+| `generateLabels` | `功能`| |为图例中的每个事物生成图例项目。默认实现返回颜色框的文本+样式。有关详细信息，请参阅[图例项目]（＃chart-configuration-legend-item-interface）。
+| `filter` | `功能`| `null` |从图例中过滤图例。接收2个参数，[图例项目]（＃图表配置 - 图例项目界面）和图表数据。
+| `usePointStyle` | `Boolean` | `false` |标签样式将匹配相应的点样式（大小基于fontSize，在这种情况下不使用boxWidth）。
 
-## Legend Item Interface
+##图例项目界面
 
-Items passed to the legend `onClick` function are the ones returned from `labels.generateLabels`. These items must implement the following interface.
+传递给图例`onClick`函数的项是从`labels.generateLabels`返回的。这些项目必须实现以下界面。
 
 ```javascript
 {
-    // Label that will be displayed
-    text: String,
+    //将显示的标签
+    text：String，
 
-    // Fill style of the legend box
-    fillStyle: Color,
+    //填充图例框的样式
+    fillStyle：颜色，
 
-    // If true, this item represents a hidden dataset. Label will be rendered with a strike-through effect
-    hidden: Boolean,
+    //如果为true，则此项表示隐藏的数据集。标签将被渲染，具有贯穿效果
+    hidden：布尔值，
 
-    // For box border. See https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
-    lineCap: String,
+    //对于框边框请参阅https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
+    lineCap：String，
 
-    // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
-    lineDash: Array[Number],
+    //对于框边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
+    lineDash：Array [Number]，
 
-    // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
-    lineDashOffset: Number,
+    //对于框边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
+    lineDashOffset：Number，
 
-    // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
-    lineJoin: String,
+    //对于框边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
+    lineJoin：String，
 
-    // Width of box border
-    lineWidth: Number,
+    //框边框宽度
+    lineWidth：Number，
 
-    // Stroke style of the legend box
-    strokeStyle: Color
+    //图例框的中风风格
+    strokeStyle：颜色
 
-    // Point style of the legend box (only used if usePointStyle is true)
-    pointStyle: String
+    //图例框的点样式（仅在usePointStyle为true时使用）
+    pointStyle：String
 }
 ```
 
-## Example
+示例
 
-The following example will create a chart with the legend enabled and turn all of the text red in color.
+以下示例将创建一个启用了图例的图表，并将所有文字变成红色。
 
 ```javascript
-var chart = new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: {
-        legend: {
-            display: true,
-            labels: {
-                fontColor: 'rgb(255, 99, 132)'
-            }
-        }
+var chart = new Chart（ctx，{
+    键入：'bar'，
+    数据：数据，
+    选项：{
+        传说：{
+            显示：真，
+            标签： {
+                fontColor：'rgb（255，99，132）'
+            }
+        }
 }
-});
+}）;
 ```
 
-## Custom On Click Actions
+##自定义点击操作
 
-It can be common to want to trigger different behaviour when clicking an item in the legend. This can be easily achieved using a callback in the config object.
+想要在点击图例中的项目时触发不同的行为是常见的。这可以使用config对象中的回调轻松实现。
 
-The default legend click handler is:
+默认图例点击处理程序是：
 ```javascript
-function(e, legendItem) {
-    var index = legendItem.datasetIndex;
-    var ci = this.chart;
-    var meta = ci.getDatasetMeta(index);
+function（e，legendItem）{
+    var index = legendItem.datasetIndex;
+    var ci = this.chart;
+    var meta = ci.getDatasetMeta（index）;
 
-    // See controller.isDatasetVisible comment
-    meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+    //参见controller.isDatasetVisible注释
+    meta.hidden = meta.hidden === null？ ！ci.data.datasets [index] .hidden：null;
 
-    // We hid a dataset ... rerender the chart
-    ci.update();
+    //我们隐藏了一个数据集...重新渲染图表
+    ci.update（）;
 }
 ```
 
-Lets say we wanted instead to link the display of the first two datasets. We could change the click handler accordingly.
+假设我们希望链接前两个数据集的显示。我们可以相应地更改点击处理程序。
 
 ```javascript
 var defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
-var newLegendClickHandler = function (e, legendItem) {
-    var index = legendItem.datasetIndex;
+var newLegendClickHandler = function（e，legendItem）{
+    var index = legendItem.datasetIndex;
 
-    if (index > 1) {
-        // Do the original logic
-        defaultLegendClickHandler(e, legendItem);
-    } else {
-        let ci = this.chart;
-        [ci.getDatasetMeta(0),
-         ci.getDatasetMeta(1)].forEach(function(meta) {
-            meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
-        });
-        ci.update();
-    }
-};
+    if（index> 1）{
+        //做原始逻辑
+        defaultLegendClickHandler（e，legendItem）;
+    } else {
+        让ci = this.chart;
+        [ci.getDatasetMeta（0），
+         ci.getDatasetM
 
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        legend: {
-
-        }
-    }
-});
-```
-
-Now when you click the legend in this chart, the visibility of the first two datasets will be linked together.
-
-## HTML Legends
-
-Sometimes you need a very complex legend. In these cases, it makes sense to generate an HTML legend. Charts provide a `generateLegend()` method on their prototype that returns an HTML string for the legend.
-
-To configure how this legend is generated, you can change the `legendCallback` config property.
+假设我们希望链接前两个数据集的显示。我们可以相应地更改点击处理程序。
 
 ```javascript
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        legendCallback: function(chart) {
-            // Return the HTML string here.
-        }
-    }
-});
+var defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
+var newLegendClickHandler = function（e，legendItem）{
+    var index = legendItem.datasetIndex;
+
+    if（index> 1）{
+        //做原始逻辑
+        defaultLegendClickHandler（e，legendItem）;
+    } else {
+        让ci = this.chart;
+        [ci.getDatasetMeta（0），
+         ci.getDatasetMeta（1）]。forEach（function（meta）{
+            meta.hidden = meta.hidden === null？ ！ci.data.datasets [index] .hidden：null;
+        }）;
+        ci.update（）;
+    }
+};
+
+var chart = new Chart（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：{
+        传说：{
+
+        }
+    }
+}）;
+```
+
+现在当您单击此图表中的图例时，前两个数据集的可见性将被链接在一起。
+
+## HTML传奇
+
+有时你需要一个非常复杂的传奇。在这些情况下，生成HTML图例是有意义的。图表在其原型上提供了一个“generateLegend（）”方法，该方法返回图例的HTML字符串。
+
+要配置如何生成此图例，可以更改“legendCallback”配置属性。
+
+```javascript
+var chart = new Chart（ctx，{
+    输入：'line'，
+    数据：数据，
+    选项：{
+        legendCallback：function（chart）{
+            //返回HTML字符串。
+        }
+    }
+}）;
 ```
