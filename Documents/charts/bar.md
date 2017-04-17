@@ -1,240 +1,104 @@
-# Bar
-A bar chart provides a way of showing data values represented as vertical bars. It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+＃条形图
+条形图提供了一种显示以垂直条表示的数据值的方式。它有时用于显示趋势数据，并且并排比较多个数据集。
 
-{% chartjs %}
+```javascript
 {
-    "type": "bar",
-    "data": {
-        "labels": [
-            "January", 
-            "February", 
-            "March", 
-            "April", 
-            "May", 
-            "June", 
-            "July"
-        ],
-        "datasets": [{
-            "label": "My First Dataset",
-            "data": [65, 59, 80, 81, 56, 55, 40],
-            "fill": false,
-            "backgroundColor": [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(201, 203, 207, 0.2)"
-            ],
-            "borderColor": [
-                "rgb(255, 99, 132)",
-                "rgb(255, 159, 64)",
-                "rgb(255, 205, 86)",
-                "rgb(75, 192, 192)",
-                "rgb(54, 162, 235)",
-                "rgb(153, 102, 255)",
-                "rgb(201, 203, 207)"
-            ],
-            "borderWidth": 1
-        }]
-    },
-    "options": {
-        "scales": {
-            "yAxes": [{
-                "ticks": {
-                    "beginAtZero": true
-                }
-            }]
-        }
-    }
+"type": "bar",
+"data": {
+"labels": [
+"January", 
+"February", 
+"March", 
+"April", 
+"May", 
+"June", 
+"July"
+],
+"datasets": [{
+"label": "My First Dataset",
+"data": [65, 59, 80, 81, 56, 55, 40],
+"fill": false,
+"backgroundColor": [
+"rgba(255, 99, 132, 0.2)",
+"rgba(255, 159, 64, 0.2)",
+"rgba(255, 205, 86, 0.2)",
+"rgba(75, 192, 192, 0.2)",
+"rgba(54, 162, 235, 0.2)",
+"rgba(153, 102, 255, 0.2)",
+"rgba(201, 203, 207, 0.2)"
+],
+"borderColor": [
+"rgb(255, 99, 132)",
+"rgb(255, 159, 64)",
+"rgb(255, 205, 86)",
+"rgb(75, 192, 192)",
+"rgb(54, 162, 235)",
+"rgb(153, 102, 255)",
+"rgb(201, 203, 207)"
+],
+"borderWidth": 1
+}]
+},
+"options": {
+"scales": {
+"yAxes": [{
+"ticks": {
+"beginAtZero": true
 }
-{% endchartjs %}
+}]
+}
+}
+}
+```
 
-## Example Usage
+##使用示例
 ```javascript
 var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: options
+type: 'bar',
+data: data,
+options: options
 });
 ```
 
-## Dataset Properties
-The bar chart allows a number of properties to be specified for each dataset. These are used to set display properties for a specific dataset. For example, the colour of the bars is generally set this way.
+##数据集属性
+条形图允许为每个数据集指定多个属性。这些用于设置特定数据集的显示属性。例如，通常这样设置条的颜色。
 
-Some properties can be specified as an array. If these are set to an array value, the first value applies to the first bar, the second value to the second bar, and so on.
+一些属性可以指定为数组。如果这些值设置为数组值，则第一个值适用于第一个条，第二个值应用于第二个条，等等。
 
-| Name | Type | Description
+|名称|类型|描述
 | ---- | ---- | -----------
-| `label` | `String` | The label for the dataset which appears in the legend and tooltips.
-| `xAxisID` | `String` | The ID of the x axis to plot this dataset on. If not specified, this defaults to the ID of the first found x axis
-| `yAxisID` | `String` | The ID of the y axis to plot this dataset on. If not specified, this defaults to the ID of the first found y axis.
-| `backgroundColor` | `Color/Color[]` | The fill color of the bar. See [Colors](../general/colors.md#colors)
-| `borderColor` | `Color/Color[]` | The color of the bar border. See [Colors](../general/colors.md#colors)
-| `borderWidth` | `Number/Number[]` | The stroke width of the bar in pixels.
-| `borderSkipped` | `String` | Which edge to skip drawing the border for. [more...](#borderSkipped)
-| `hoverBackgroundColor` | `Color/Color[]` | The fill colour of the bars when hovered.
-| `hoverBorderColor` | `Color/Color[]` | The stroke colour of the bars when hovered.
-| `hoverBorderWidth` | `Number/Number[]` | The stroke width of the bars when hovered.
+| `label` | `String` |数据集的标签出现在图例和工具提示中。
+| `xAxisID` | `String` |打印此数据集的x轴的ID。如果未指定，则默认为第一个找到的x轴的ID
+| `yAxisID` | `String` |要绘制此数据集的y轴的ID。如果未指定，则默认为首次找到的y轴的ID。
+| `backgroundColor` | `颜色/颜色[]`|条形图的填充颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderColor` | `颜色/颜色[]`|条形图边框的颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderWidth` | `Number / Number []`|条的行程宽度（以像素为单位）。
+| `borderSkipped` | `String` |哪个边缘跳过绘制边框。 [更多...]（＃borderSkipped）
+| `hoverBackgroundColor` | `颜色/颜色[]`|悬停时条形图的填充颜色。
+| `hoverBorderColor` | `颜色/颜色[]`|悬停时条形图的中风颜色。
+| `hoverBorderWidth` | `Number / Number []`|悬停时条形图的行程宽度。
 
 ### borderSkipped
-This setting is used to avoid drawing the bar stroke at the base of the fill. In general, this does not need to be changed except when creating chart types that derive from a bar chart.
+此设置用于避免在填充底部绘制条形笔触。一般来说，除了创建从条形图导出的图表类型之外，不需要更改。
 
-Options are:
+选项是：
 * 'bottom'
 * 'left'
 * 'top'
 * 'right'
 
-## Configuration Options
+##配置选项
 
-The bar chart defines the following configuration options. These options are merged with the global chart configuration options, `Chart.defaults.global`, to form the options passed to the chart.
+条形图定义了以下配置选项。这些选项与全局图表配置选项“Chart.defaults.global”合并，以形成传递到图表的选项。
 
-| Name | Type | Default | Description
+|名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
-| `barPercentage` | `Number` | `0.9` | Percent (0-1) of the available width each bar should be within the category percentage. 1.0 will take the whole category width and put the bars right next to each other. [more...](#bar-chart-barpercentage-vs-categorypercentage)
-| `categoryPercentage` | `Number` | `0.8` | Percent (0-1) of the available width (the space between the gridlines for small datasets) for each data-point to use for the bars. [more...](#bar-chart-barpercentage-vs-categorypercentage)
-| `barThickness` | `Number` | | Manually set width of each bar in pixels. If not set, the bars are sized automatically using `barPercentage` and `categoryPercentage`;
-| `maxBarThickness` | `Number` | | Set this to ensure that the automatically sized bars are not sized thicker than this. Only works if barThickness is not set (automatic sizing is enabled).
-| `gridLines.offsetGridLines` | `Boolean` | `true` | If true, the bars for a particular data point fall between the grid lines. If false, the grid line will go right down the middle of the bars. [more...](#offsetGridLines)
+| `barPercentage` | `Number` | `0.9` |每个栏的可用宽度的百分比（0-1）应在类别百分比内。 1.0将占据整个类别的宽度，并将条形图放在彼此旁边。 [更多...]（＃bar-chart-barpercentage-vs-categorypercentage）
+| `categoryPercentage` | `Number` | `0.8` |用于条的每个数据点的可用宽度的百分比（0-1）（小数据集的网格线之间的间距）。 [更多...]（＃bar-chart-barpercentage-vs-categorypercentage）
+| `barThickness` | `Number` | |手动设置每个栏的宽度（以像素为单位）。如果未设置，则使用“barPercentage”和“categoryPercentage”自动调整条形图;
+| `maxBarThickness` | `Number` | |设置此项以确保自动调整的尺寸的尺寸不会大于此厚度。仅当barThickness未设置（启用自动调整大小）时才起作用。
+| `gridLines.offsetGridLines` | `Boolean` | `true` |如果为真，则特定数据点的条形线落在网格线之间。如果是假的，网格线将沿着条形图的中间。 [更多...]（＃offsetGridLines）
 
 ### offsetGridLines
-If true, the bars for a particular data point fall between the grid lines. If false, the grid line will go right down the middle of the bars. It is unlikely that this will ever need to be changed in practice. It exists more as a way to reuse the axis code by configuring the existing axis slightly differently.
+如果为真，则特定数据点的条形线落在网格线之间。如果是假的，网格线将沿着条形图的中间。这在实践中不太可能需要改变。它存在更多的方式通过配置存在重用轴代码
 
-This setting applies to the axis configuration for a bar chart. If axes are added to the chart, this setting will need to be set for each new axis.
-
-```javascript
-options = {
-    scales: {
-        xAxes: [{
-            gridLines: {
-                offsetGridLines: true
-            }
-        }]
-    }
-}
-```
-
-## Default Options
-
-It is common to want to apply a configuration setting to all created bar charts. The global bar chart settings are stored in `Chart.defaults.bar`. Changing the global options only affects charts created after the change. Existing charts are not changed.
-
-## barPercentage vs categoryPercentage
-
-The following shows the relationship between the bar percentage option and the category percentage option.
-
-```text
-// categoryPercentage: 1.0
-// barPercentage: 1.0
-Bar:        | 1.0 | 1.0 |
-Category:   |    1.0    |
-Sample:     |===========|
-
-// categoryPercentage: 1.0
-// barPercentage: 0.5
-Bar:          |.5|  |.5|
-Category:  |      1.0     |
-Sample:    |==============|
-
-// categoryPercentage: 0.5
-// barPercentage: 1.0
-Bar:            |1.||1.|
-Category:       |  .5  |
-Sample:     |==============|
-```
-
-## Data Structure
-
-The `data` property of a dataset for a bar chart is specified as a an array of numbers. Each point in the data array corresponds to the label at the same index on the x axis.
-
-```javascript
-data: [20, 10]
-```
-
-# Stacked Bar Chart
-
-Bar charts can be configured into stacked bar charts by changing the settings on the X and Y axes to enable stacking. Stacked bar charts can be used to show how one data series is made up of a number of smaller pieces.
-
-```javascript
-var stackedBar = new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: {
-        scales: {
-            xAxes: [{
-                stacked: true
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
-    }
-});
-```
-
-## Dataset Properties
-
-The following dataset properties are specific to stacked bar charts.
-
-| Name | Type | Description
-| ---- | ---- | -----------
-| `stack` | `String` | The ID of the group to which this dataset belongs to (when stacked, each group will be a separate stack)
-
-# Horizontal Bar Chart
-A horizontal bar chart is a variation on a vertical bar chart. It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
-{% chartjs %}
-{
-    "type": "horizontalBar",
-    "data": {
-        "labels": ["January", "February", "March", "April", "May", "June", "July"],
-        "datasets": [{
-            "label": "My First Dataset",
-            "data": [65, 59, 80, 81, 56, 55, 40],
-            "fill": false,
-            "backgroundColor": [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(201, 203, 207, 0.2)"
-            ],
-            "borderColor": [
-                "rgb(255, 99, 132)",
-                "rgb(255, 159, 64)",
-                "rgb(255, 205, 86)",
-                "rgb(75, 192, 192)",
-                "rgb(54, 162, 235)",
-                "rgb(153, 102, 255)",
-                "rgb(201, 203, 207)"
-            ],
-            "borderWidth": 1
-        }]
-    },
-    "options": {
-        "scales": {
-            "xAxes": [{
-                "ticks": {
-                    "beginAtZero": true
-                }
-            }]
-        }
-    }
-}
-{% endchartjs %}
-
-## Example
-```javascript
-var myBarChart = new Chart(ctx, {
-    type: 'horizontalBar',
-    data: data,
-    options: options
-});
-```
-
-## Config Options
-The configuration options for the horizontal bar chart are the same as for the [bar chart](../bar/config-options.md#config-options). However, any options specified on the x axis in a bar chart, are applied to the y axis in a horizontal bar chart.
-
-The default horizontal bar configuration is specified in `Chart.defaults.horizontalBar`.
