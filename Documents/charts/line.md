@@ -99,7 +99,7 @@ var myLineChart = new Chart(ctx, {
 * 'crossRot'
 * 'dash'. 
 * 'line'
-* 'rect'
+* `rect`
 * 'rectRounded'
 * 'rectRot'
 * 'star'
