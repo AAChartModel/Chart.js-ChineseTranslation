@@ -1,49 +1,48 @@
 ＃散点图
 
-散点图是基于将x轴更改为线性轴的基本折线图。要使用散点图，数据必须作为包含X和Y属性的对象传递。下面的例子创建了一个3分的散点图。
+在 chart.js 中,散点图是基于折线图,是在折线图基础上的一个变体。要使用散点图，要显示的数据必须为带有 x 轴和 y 轴坐标点的字典对象。下面的代码示例创建了一个带有三个点的散点图:
 
 ```javascript
-var scatterChart = new Chart（ctx，{
-    类型：'scatter'，
-    资料：{
-        数据集：[{
-            标签：“散点数据集”，
-            数据：[{
-                x：-10，
-                y：0
-            }，{
-                x：0，
-                y：10
-            }，{
-                x：10，
-                y：5
-            }]
-        }]
-    }，
-    选项：{
-        比例：{
-            xAxes：[{
-                类型：'linear'，
-                位置：'底部'
-            }]
-        }
-    }
-}）;
-```
+var scatterChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Scatter Dataset',
+            data: [{
+                x: -10,
+                y: 0
+            }, {
+                x: 0,
+                y: 10
+            }, {
+                x: 10,
+                y: 5
+            }]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});```
 
 ##数据集属性
-散点图支持与[折线图]（./ line.md＃dataset-properties）相同的所有属性。
+散点图支持与[折线图](./line.md#dataset-properties)相同的所有的属性配置.
 
 ＃＃ 数据结构
 
-与可以以两种不同格式提供数据的折线图不同，散点图仅接受点格式的数据。
+与可以用两种不同格式来设置data数据的折线图不同，散点图仅支持带有 x 轴和 y 轴坐标点的格式的数据。 示例如下:
 
 ```javascript
-数据：[{
-        x：10，
-        y：20
-    }，{
-        x：15，
-        y：10
-    }]
+data: [{
+        x: 10,
+        y: 20
+    }, {
+        x: 15,
+        y: 10
+    }]
 ```
