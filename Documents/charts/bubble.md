@@ -1,4 +1,4 @@
-＃气泡图
+# 气泡图
 
 气泡图用于显示一组三维数据。气泡图中气泡的位置由前两个维度(水平坐标 x 和垂直坐标 y )确定, 气泡的大小由第三个维度 r 来确定。
 
@@ -23,7 +23,7 @@
 }
 ```
 
-##使用示例
+## 使用示例
 
 ```javascript
 //气泡图
@@ -51,15 +51,15 @@ var myBubbleChart = new Chart(ctx,{
 | `hoverBorderWidth` | `Number / Number []`|悬停时点的边界宽度。
 | `hoverRadius` | `Number / Number []`|悬停时添加到数据半径的附加半径。
 
-##配置选项
+## 配置选项
 
 气泡图没有唯一的配置选项。要配置所有气泡共有的选项，使用[point element options]（../ configuration / elements / point.md＃point-configuration）。
 
-##默认选项
+## 默认选项
 
 我们也可以更改气泡图类型的默认值。这样做将使所有创建的气泡图在此之后创建新的默认值。气泡图的默认配置可以在`Chart.defaults.bubble`中访问。
 
-##数据结构
+## 数据结构
 
 对于气泡图，数据集需要包含一组数据点。每个点都必须实现[bubble data object]（＃bubble-data-object）接口。
 
