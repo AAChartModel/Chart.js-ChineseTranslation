@@ -1,71 +1,71 @@
-＃甜甜圈和馅饼
-饼图和甜甜圈图可能是最常用的图表。它们分为段，每段的弧显示每条数据的比例值。
+＃环形图和扇形图
+扇形图和环形图可能是最常用的图表。它们分为段，每段的弧显示每条数据的比例值。
 
 他们非常优秀的显示数据之间的关系比例。
 
-饼图和甜甜圈图在Chart.js中实际上是同一个类，但是有一个不同的默认值 - 它们的“chopPercentage”。这等于应该削减内部的百分比。饼图默认为0，甜甜圈为50。
+扇形图和环形图在Chart.js中实际上是同一个类，但是有一个不同的默认值 - 它们的“chopPercentage”。这等于应该削减内部的百分比。扇形图默认为0，环形图默认为50。
 
 它们也在“Chart”核心中的两个别名下注册。除了不同的默认值和不同的别名，它们是完全一样的。
 
-{％chartjs％}
+```javascript
 {
-    “type”：“甜甜圈”，
-    “data”：{
-        “标签”： [
-            “红”，
-            “蓝色”，
-            “黄色”，
-        ]，
-        “datasets”：[{
-            “label”：“我的第一个数据集”，
-            “资料”：[300,50,100]
-            “背景颜色”： [
-                “rgb（255，99，132）”，
-                “rgb（54，162，235）”，
-                “rgb（255，205，86）”，
-            ]
-        }]
-    }，
-}
-{％endchartjs％}
+    "type": "doughnut",//设置图形类别为环形图
+    "data": {
+        "labels": [
+            "Red",
+            "Blue",
+            "Yellow",
+        ],
+        "datasets": [{
+            "label": "我的第一个数据集",
+            "data": [300, 50, 100],
+            "backgroundColor": [
+                "rgb(255, 99, 132)",
+                "rgb(54, 162, 235)",
+                "rgb(255, 205, 86)",
+            ]
+        }]
+    },
+```
+ 
 
 ##使用示例
 
 ```javascript
-//对于饼图
-var myPieChart = new Chart（ctx，{
-    输入：'pie'，
-    数据：数据，
-    选项：选项
-}）;
+//扇形图
+var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data: data,
+    options: options
+});
 ```
 
 ```javascript
-//和一个甜甜圈图表
-var myDoughnutChart = new Chart（ctx，{
-    类型：'甜甜圈'，
-    数据：数据，
-    选项：选项
-}）;
+//环形图
+var myDoughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: data,
+    options: options
+});
 ```
 
 ##数据集属性
 
-甜甜圈/饼图允许为每个数据集指定多个属性。这些用于设置特定数据集的显示属性。例如，数据集弧的颜色通常是这样设置的。
+扇形图和环形图允许为每个数据集指定多个属性。这些用于设置特定数据集的显示属性。例如，数据集圆弧的颜色通常是这样设置的。
 
 |名称|类型|描述
 | ---- | ---- | -----------
-| `label` | `String` |数据集的标签出现在图例和工具提示中。
-| `backgroundColor` | `颜色[]`|数据集中圆弧的填充颜色。请参阅[颜色]（../ general / colors.md＃colors）
-| `borderColor` | `颜色[]`|数据集中弧线的边框颜色。请参阅[颜色]（../ general / colors.md＃colors）
-| `borderWidth` | `Number []`|数据集中弧线的边框宽度。
-| `hoverBackgroundColor` | `颜色[]`|悬停时圆弧的填充颜色。
-| `hoverBorderColor` | `颜色[]`|徘徊时弧线的笔画颜色。
-| `hoverBorderWidth` | `Number []`|悬停时弧线的行程宽度。
+| `label` | `String` |数据集的标签出现在图例和浮动提示框中。
+| `backgroundColor` | `Color[]`|数据集中圆弧的填充颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderColor` | `Color[]`|数据集中弧线的轮廓描边颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `borderWidth` | `Number []`|数据集中弧线的轮廓描边宽度。
+| `hoverBackgroundColor` | `Color[]`|悬停时圆弧的填充颜色。
+| `hoverBorderColor` | `Color[]`|悬停时弧线的轮廓描边颜色。
+| `hoverBorderWidth` | `Number []`|悬停时弧线的轮廓描边宽度。
 
 ##配置选项
 
-这些是Pie＆Donut图表特有的定制选项。这些选项与全局图配置选项合并，并形成图表的选项。
+这些是扇形图和环形图特有的定制选项。这些选项与全局图配置选项合并，并形成图表的选项。
 
 |名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
@@ -77,25 +77,25 @@ var myDoughnutChart = new Chart（ctx，{
 
 ##默认选项
 
-我们还可以为创建的每个Donut类型更改这些默认值，该对象在`Chart.defaults.doughnut`中可用。饼图还可以使用这些默认值的克隆，可以在“Chart.defaults.pie”中进行更改，唯一的区别就是将“chopPercentage”设置为0。
+我们还可以为创建的每个Donut类型更改这些默认值，该对象在`Chart.defaults.doughnut`中可用。扇形图还可以使用这些默认值的克隆，可以在“Chart.defaults.pie”中进行更改，唯一的区别就是将“chopPercentage”设置为0。
 
-＃＃ 数据结构
+##数据结构
 
-对于饼图，数据集需要包含一组数据点。数据点应该是一个数字，Chart.js将总计所有数字，并计算每个数据的相对比例。
+对于扇形图，数据集需要包含一组数据点。数据点应该是一个数字，Chart.js将总计所有数字，并计算每个数据的相对比例。
 
-您还需要指定一组标签，以便工具提示正确显示
+您还需要指定一组标签，以便浮动提示框正确显示
 
 ```javascript
 data = {
-    数据集：[{
-        数据：[10，20，30]
-    }]，
+    datasets: [{
+        data: [10, 20, 30]
+    }],
 
-    //当悬停不同的弧时，这些标签显示在图例和工具提示中
-    标签： [
-        '红'，
-        '黄色'，
-        '蓝色'
-    ]
+    //当悬停不同在不同的圆弧上时，这些标签显示在图例和浮动提示框中
+    labels: [
+        'Red',
+        'Yellow',
+        'Blue'
+    ]
 };
 ```
