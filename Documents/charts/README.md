@@ -1,6 +1,6 @@
 # 图表
 
-Chart.js 支持的图表类型:
+`Chart.js` 支持的图表类型:
 * [折线图](./line.md)
 * [条形图](./bar.md)
 * [雷达图](./radar.md)
