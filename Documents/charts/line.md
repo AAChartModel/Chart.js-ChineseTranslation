@@ -49,27 +49,27 @@ var myLineChart = new Chart(ctx, {
 | `yAxisID` | `String` |要绘制此数据集的y轴的ID。如果未指定，则默认为首次找到的y轴的ID。
 | `backgroundColor` | `Color/Color[]`|填充颜​​色下线。请参阅[颜色](../general/colors.md#colors)
 | `borderColor` | `Color/Color[]`|线的颜色。请参阅[颜色](../general/colors.md#colors)
-| `borderWidth` | `Number / Number []`|行的宽度（以像素为单位）。
-| `borderDash` | `Number []`|破折号的长度和间距。请参阅[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash)
+| `borderWidth` | `Number/Number[]`|行的宽度（以像素为单位）。
+| `borderDash` | `Number[]`|破折号的长度和间距。请参阅[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash)
 | `borderDashOffset` | `Number` |线条破折号偏移。请参阅[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)
 | `borderCapStyle` | `String` |帽子风格的线条。请参阅[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap)
 | `borderJoinStyle` | `String` |线接合风格。请参阅[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin)
 | `cubicInterpolationMode` | `String` |用于从离散数据点插入平滑曲线的算法。 [更多...](#cubicInterpolationMode)
-| `fill` | `Boolean / String` |如何填写下面的区域。 [更多...](#fill)
+| `fill` | `Boolean/String` |如何填写下面的区域。 [更多...](#fill)
 | `lineTension` | `Number` |贝塞尔曲线张力线。设置为0以绘制直线。如果使用单调三次插值，则忽略此选项。
 | `pointBackgroundColor` | `Color/Color[]`|点的填充颜色
 | `pointBorderColor` | `Color/Color[]`|点的边框颜色。
-| `pointBorderWidth` | `Number / Number []`|点边框的宽度（以像素为单位）。
-| `pointRadius` | `Number / Number []`|点形状的半径。如果设置为0，则不渲染点。
-| `pointStyle` | `String / String [] / Image / Image []`|风格的点。 [更多...](#pointStyle)
-| `pointHitRadius` | `Number / Number []`|反映鼠标事件的非显示点的像素大小。
+| `pointBorderWidth` | `Number/Number[]`|点边框的宽度（以像素为单位）。
+| `pointRadius` | `Number/Number[]`|点形状的半径。如果设置为0，则不渲染点。
+| `pointStyle` | `String/String[]/Image/Image[]`|风格的点。 [更多...](#pointStyle)
+| `pointHitRadius` | `Number/Number[]`|反映鼠标事件的非显示点的像素大小。
 | `pointHoverBackgroundColor` | `Color/Color[]`|当悬停时指示背景颜色。
 | `pointHoverBorderColor` | `Color/Color[]`|悬停时点边框颜色。
-| `pointHoverBorderWidth` | `Number / Number []`|悬停时点的边界宽度。
-| `pointHoverRadius` | `Number / Number []`|悬停点的半径。
+| `pointHoverBorderWidth` | `Number/Number[]`|悬停时点的边界宽度。
+| `pointHoverRadius` | `Number/Number[]`|悬停点的半径。
 | `showLine` | `Boolean` |如果为 false ，则不为此数据集绘制该行。
 | `spanGaps` | `Boolean` |如果为 true ，则将在无数据或零数据的点之间绘制行。如果为 false ，则使用“NaN”数据的点将在行中创建一个中断
-| `stepLine` | `Boolean / String` |如果线显示为阶梯线。  [更多...](#stepped-line)
+| `stepLine` | `Boolean/String` |如果线显示为阶梯线。  [更多...](#stepped-line)
 
 ### cubicInterpolationMode
 支持以下插补模式：
@@ -82,8 +82,8 @@ var myLineChart = new Chart(ctx, {
 
 如果保持不变（`undefined`），则使用全局`options.elements.line.cubicInterpolationMode`属性。
 
-＃＃＃ 填
-如果是“true”，请填写下面的区域。该行被填充到基线。如果y轴为0，则填充该线。如果轴只有负值，则该行将被填充到最高值。如果轴只有正值，则它被填充到最低值。
+### fill
+如果是`true`，请填写下面的区域。该行被填充到基线。如果y轴为0，则填充该线。如果轴只有负值，则该行将被填充到最高值。如果轴只有正值，则它被填充到最低值。
 
 字符串值为fi
 
@@ -177,11 +177,11 @@ var stackedLine = new Chart(ctx, {
 });
 ```
 
- # 高性能线图
+# 高性能线图
 
 当绘制大量数据时，图表渲染时间可能开始变得相当大。在这种情况下，可以使用以下策略来提高性能。
 
- ## 数据抽取
+## 数据抽取
 
 取消您的数据将取得最佳效果。当图形上显示的数据很多时，在图形上只显示数百个像素宽的数以万计的数据点是没有意义的。
 
