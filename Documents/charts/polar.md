@@ -4,40 +4,40 @@
 
 当我们想要显示类似于饼图的比较数据时，这种类型的图表通常很有用，但也显示上下文的值的比例。
 
-{％chartjs％}
+```
 {
-    “type”：“polarArea”，
-    “data”：{
-        “标签”： [
-            “红”，
-            “绿色”，
-            “黄色”，
-            “灰色”，
-            “蓝色”
-        ]，
-        “datasets”：[{
-            “label”：“我的第一个数据集”，
-            “数据”：[11，16，7，3，14]，
-            “背景颜色”： [
-                “rgb（255，99，132）”，
-                “rgb（75,192,192）”，
-                “rgb（255，205，86）”，
-                “rgb（201,203,207）”，
-                “rgb（54，162，235）”
-            ]
-        }]
-    }，
+    "type": "polarArea",
+    "data": {
+        "labels": [
+            "Red",
+            "Green",
+            "Yellow",
+            "Grey",
+            "Blue"
+        ],
+        "datasets": [{
+            "label": "My First Dataset",
+            "data": [11, 16, 7, 3, 14],
+            "backgroundColor": [
+                "rgb(255, 99, 132)",
+                "rgb(75, 192, 192)",
+                "rgb(255, 205, 86)",
+                "rgb(201, 203, 207)",
+                "rgb(54, 162, 235)"
+            ]
+        }]
+    },
 }
-{％endchartjs％}
+```
 
 ##使用示例
 
 ```javascript
-新图表（ctx，{
-    数据：数据，
-    类型：'polarArea'，
-    选项：选项
-}）;
+new Chart(ctx, {
+    data: data,
+    type: 'polarArea',
+    options: options
+});
 ```
 
 ##数据集属性
@@ -47,11 +47,11 @@
 |名称|类型|描述
 | ---- | ---- | -----------
 | `label` | `String` |数据集的标签出现在图例和工具提示中。
-| `backgroundColor` | `颜色[]`|数据集中圆弧的填充颜色。请参阅[颜色]（../ general / colors.md＃colors）
-| `borderColor` | `颜色[]`|数据集中弧线的边框颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `backgroundColor` | `Color[]`|数据集中圆弧的填充颜色。请参阅[颜色](../general/colors.md#colors)
+| `borderColor` | `Color[]`|数据集中弧线的边框颜色。请参阅[颜色](../general/colors.md#colors)
 | `borderWidth` | `Number []`|数据集中弧线的边框宽度。
-| `hoverBackgroundColor` | `颜色[]`|悬停时圆弧的填充颜色。
-| `hoverBorderColor` | `颜色[]`|徘徊时弧线的笔画颜色。
+| `hoverBackgroundColor` | `Color[]`|悬停时圆弧的填充颜色。
+| `hoverBorderColor` | `Color[]`|悬停时弧线的笔画颜色。
 | `hoverBorderWidth` | `Number []`|悬停时弧线的行程宽度。
 
 ##配置选项
@@ -81,15 +81,15 @@ Chart.defaults.polarArea.animation.animateScale = false;
 
 ```javascript
 data = {
-    数据集：[{
-        数据：[10，20，30]
-    }]，
+    datasets: [{
+        data: [10, 20, 30]
+    }],
 
-    //当悬停不同的弧时，这些标签显示在图例和工具提示中
-    标签： [
-        '红'，
-        '黄色'，
-        '蓝色'
-    ]
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Red',
+        'Yellow',
+        'Blue'
+    ]
 };
 ```
