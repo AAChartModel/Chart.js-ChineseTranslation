@@ -1,16 +1,17 @@
-＃Chart.js
+# Chart.js
 
-[！[Chart.js on Slack]（https://img.shields.io/badge/slack-Chart.js-blue.svg）]（https://chart-js-automation.herokuapp.com/）
+[！[Chart.js on Slack](https://img.shields.io/badge/slack-Chart.js-blue.svg)](https://chart-js-automation.herokuapp.com/)
 
-##安装
+## 安装
 
-您可以从[GitHub版本]（https://github.com/chartjs/Chart.js/releases/latest）下载最新版本的Chart.js，或使用[Chart.js CDN]（https：// cdnjs .com / libraries / Chart.js）。详细的安装说明可以在[安装]（./ getting-started / installation.md）页面找到。
+您可以从[GitHub版本](https://github.com/chartjs/Chart.js/releases/latest) 下载最新版本的`Chart.js`，或使用 [Chart.js CDN](https：// cdnjs .com / libraries / Chart.js) 。详细的安装说明可以在[安装](./getting-started / installation.md)页面找到。
 
-##创建图表
+## 创建图表
 
-很容易开始使用Chart.js。所需要的是脚本包含在您的页面中以及单个“<canvas”节点来呈现图表。
+很容易开始使用`Chart.js`。所需要的是脚本包含在您的页面中以及单个`<canvas>`节点来呈现图表。
 
-在此示例中，我们为单个数据集创建条形图，并在我们的页面中呈现。您可以在[使用文档]（./ getting-started / usage.md）中查看使用Chart.js的所有方法
+在此示例中，我们为单个数据集创建条形图，并在我们的页面中呈现。您可以在[使用文档](./getting-started/usage.md) 中查看使用`Chart.js`的所有方法
+
 ```html
 <canvas id =“myChart”width =“400”height =“400”> </ canvas>
 <script>
@@ -54,12 +55,12 @@ var myChart = new Chart（ctx，{
 </ script>
 ```
 
-##贡献
+## 贡献
 
-在向项目提交问题或提出请求之前，请先点击[贡献指南]（https://github.com/chartjs/Chart.js/blob/master/CONTRIBUTING.md）。
+在向项目提交问题或提出请求之前，请先点击[贡献指南](https://github.com/chartjs/Chart.js/blob/master/CONTRIBUTING.md)。
 
-对于使用Chart.js的支持，请使用Stack Overflow上的[`chartjs`标签]（http://stackoverflow.com/questions/tagged/chartjs）发布问题。
+对于使用Chart.js的支持，请使用Stack Overflow上的[`chartjs`标签](http://stackoverflow.com/questions/tagged/chartjs)发布问题。
 
-＃＃ 执照
+## 执照
 
-Chart.js可以在[MIT许可证]（http://opensource.org/licenses/MIT）下找到。
+Chart.js可以在[MIT许可证](http://opensource.org/licenses/MIT)下找到。
