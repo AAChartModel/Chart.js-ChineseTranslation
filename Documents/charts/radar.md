@@ -51,7 +51,7 @@
 }
 ```
 
-##使用示例
+## 使用示例
 ```javascript
 var myRadarChart = new Chart(ctx, {
     type: 'radar',
@@ -60,7 +60,7 @@ var myRadarChart = new Chart(ctx, {
 });
 ```
 
-##数据集属性
+## 数据集属性
 
 雷达图表允许为每个数据集指定多个属性。这些用于设置特定数据集的显示属性。例如，通常以这种方式设置一行的颜色。
 
@@ -104,11 +104,11 @@ var myRadarChart = new Chart(ctx, {
 
 如果该选项是图像，则使用[drawImage](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage)在画布上绘制该图像。
 
-##配置选项
+## 配置选项
 
 与其他图表不同，雷达图表中没有图表特定的选项。
 
-##比例选项
+## 比例选项
 
 雷达图只支持一个刻度。这个比例的选项在`scale`属性中定义。
 
@@ -122,11 +122,11 @@ options = {
 ```
 
 
-##默认选项
+## 默认选项
 
 通常要将配置设置应用于所有创建的雷达图表。 全局雷达图设置存储在`Chart.defaults.radar`中。 更改全局选项仅影响更改后创建的图表。 现有图表不变。
 
-##数据结构
+## 数据结构
 
 雷达图表的数据集的`data`属性被指定为数组。 数据数组中的每个点对应于x轴上相同索引处的标签。
 
