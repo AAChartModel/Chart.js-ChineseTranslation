@@ -108,26 +108,26 @@ var myLineChart = new Chart(ctx, {
 如果该选项是图像，则使用[drawImage](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage)在画布上绘制该图像。
 
 ### Stepped Line
-“stepsLine”支持以下值：
+`stepsLine`支持以下值：
 *`false`：无步骤插值（默认）
 *`true`：插值之前（eq。'before'之前）
 *`'before'`：插值之前的步骤
 *`'after'`：逐步插值
 
-如果“stepsLine”值设置为false以外的任何值，则“lineTension”将被忽略。
+如果`stepsLine`值设置为`false`以外的任何值，则`lineTension`将被忽略。
 
 ## 配置选项
 
-折线图定义了以下配置选项。这些选项与全局图表配置选项“Chart.defaults.global”合并，以形成传递到图表的选项。
+折线图定义了以下配置选项。这些选项与全局图表配置选项`Chart.defaults.global`合并，以形成传递到图表的选项。
 
 |名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
-| `showLines` | `Boolean` | `true` |如果为 false，则不绘制点之间的线。
-| `spanGaps` | `Boolean` | `false` |如果为 false，NaN数据会导致行中断。
+| `showLines` | `Boolean` | `true` |如果为`false`，则不绘制点之间的线。
+| `spanGaps` | `Boolean` | `false` |如果为`false`，NaN数据会导致行中断。
 
 ## 默认选项
 
-通常要将配置设置应用于所有创建的折线图。全局折线图设置存储在“Chart.defaults.line”中。更改全局选项仅影响更改后创建的图表。现有图表不变。
+通常要将配置设置应用于所有创建的折线图。全局折线图设置存储在`Chart.defaults.line`中。更改全局选项仅影响更改后创建的图表。现有图表不变。
 
 例如，要使用`spanGaps = true'配置所有折线图，您可以：
 ```javascript
@@ -136,7 +136,7 @@ Chart.defaults.line.spanGaps = true;
 
 ## 数据结构
 
-折线图的数据集的“data”属性可以以两种格式传递。
+折线图的数据集的`data`属性可以以两种格式传递。
 
 ### 号码[]
 ```javascript
@@ -157,7 +157,7 @@ data: [{
     }]
 ```
 
-此替代项用于稀疏数据集，例如[散点图](./scatter.md#scatter-chart)中的数据集。每个数据点都使用包含“x”和“y”属性的对象进行指定。
+此替代项用于稀疏数据集，例如[散点图](./scatter.md#scatter-chart)中的数据集。每个数据点都使用包含`x`和`y`属性的对象进行指定。
 
 # 堆积区域图
 
