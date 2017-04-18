@@ -1,4 +1,4 @@
-＃极地区
+# 极地区
 
 极地区域图与饼图类似，但每个段具有相同的角度 - 段的半径根据值而有所不同。
 
@@ -30,7 +30,7 @@
 }
 ```
 
-##使用示例
+## 使用示例
 
 ```javascript
 new Chart(ctx, {
@@ -40,7 +40,7 @@ new Chart(ctx, {
 });
 ```
 
-##数据集属性
+## 数据集属性
 
 极地区图表数据集中可以包含以下选项，以配置该特定数据集的选项。
 
@@ -54,7 +54,7 @@ new Chart(ctx, {
 | `hoverBorderColor` | `Color[]`|悬停时弧线的笔画颜色。
 | `hoverBorderWidth` | `Number[]`|悬停时弧线的行程宽度。
 
-##配置选项
+## 配置选项
 
 这些是Polar Area图表特有的定制选项。这些选项与[全局图配置选项](＃global-chart-configuration)合并，并形成图表的选项。
 
@@ -64,7 +64,7 @@ new Chart(ctx, {
 | `animation.animateRotate` | `Boolean` | `true` |如果为`true`，图表将使用旋转动画进行动画处理。该属性位于`options.animation`对象中。
 | `animation.animateScale` | `Boolean` | `true` |如果为真，将从中心向外将图表缩放。
 
-##默认选项
+## 默认选项
 
 我们还可以为创建的每个`PolarArea`类型更改这些默认值，该对象在`Chart.defaults.polarArea`中可用。更改全局选项仅影响更改后创建的图表。现有图表不变。
 
@@ -74,7 +74,7 @@ new Chart(ctx, {
 Chart.defaults.polarArea.animation.animateScale = false;
 ```
 
-##数据结构
+## 数据结构
 
 对于极地图，数据集需要包含一组数据点。数据点应该是一个数字，`Chart.js`将总计所有数字，并计算每个数据的相对比例。
 
