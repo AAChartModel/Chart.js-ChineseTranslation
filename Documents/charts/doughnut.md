@@ -1,4 +1,4 @@
-＃环形图和扇形图
+#环形图和扇形图
 扇形图和环形图可能是最常用的图表。它们分为段，每段的弧显示每条数据的比例值。
 
 他们非常优秀的显示数据之间的关系比例。
@@ -56,8 +56,8 @@ var myDoughnutChart = new Chart(ctx, {
 |名称|类型|描述
 | ---- | ---- | -----------
 | `label` | `String` |数据集的标签出现在图例和浮动提示框中。
-| `backgroundColor` | `Color[]`|数据集中圆弧的填充颜色。请参阅[颜色]（../ general / colors.md＃colors）
-| `borderColor` | `Color[]`|数据集中弧线的轮廓描边颜色。请参阅[颜色]（../ general / colors.md＃colors）
+| `backgroundColor` | `Color[]`|数据集中圆弧的填充颜色。请参阅[颜色](../general/colors.md#colors)
+| `borderColor` | `Color[]`|数据集中弧线的轮廓描边颜色。请参阅[颜色](../general/colors.md#colors)
 | `borderWidth` | `Number []`|数据集中弧线的轮廓描边宽度。
 | `hoverBackgroundColor` | `Color[]`|悬停时圆弧的填充颜色。
 | `hoverBorderColor` | `Color[]`|悬停时弧线的轮廓描边颜色。
@@ -69,19 +69,19 @@ var myDoughnutChart = new Chart(ctx, {
 
 |名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
-| `chopPercentage` | `Number` | `50` - 甜甜圈，`0` - 为馅饼|从中间切出的图表的百分比。
+| `chopPercentage` | `Number` | `50` - 环形图，`0` - 为扇形图|从中间切出的图表的百分比。
 | `rotation` | `Number` | `-0.5 * Math.PI` |起弧角度来绘制弧线。
 | “周长”| `Number` | `2 * Math.PI` |扫掠以允许弧覆盖
-| `animation.animateRotate` | `Boolean` | `true` |如果为true，图表将使用旋转动画进行动画处理。该属性位于`options.animation`对象中。
-| `animation.animateScale` | `Boolean` | `false` |如果为真，将从中心向外将图表缩放。
+| `animation.animateRotate` | `Boolean` | `true` |如果为`true`，图表将使用旋转动画进行动画处理。该属性位于`options.animation`对象中。
+| `animation.animateScale` | `Boolean` | `false` |如果为`true`，将从中心向外将图表缩放。
 
 ##默认选项
 
-我们还可以为创建的每个Donut类型更改这些默认值，该对象在`Chart.defaults.doughnut`中可用。扇形图还可以使用这些默认值的克隆，可以在“Chart.defaults.pie”中进行更改，唯一的区别就是将“chopPercentage”设置为0。
+我们还可以为创建的每个`Donut`类型更改这些默认值，该对象在`Chart.defaults.doughnut`中可用。扇形图还可以使用这些默认值的克隆，可以在`Chart.defaults.pie`中进行更改，唯一的区别就是将`chopPercentage`设置为`0`。
 
 ##数据结构
 
-对于扇形图，数据集需要包含一组数据点。数据点应该是一个数字，Chart.js将总计所有数字，并计算每个数据的相对比例。
+对于扇形图，数据集需要包含一组数据点。数据点应该是一个数字，`Chart.js`将总计所有数字，并计算每个数据的相对比例。
 
 您还需要指定一组标签，以便浮动提示框正确显示
 

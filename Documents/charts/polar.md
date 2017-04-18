@@ -49,33 +49,34 @@ new Chart(ctx, {
 | `label` | `String` |数据集的标签出现在图例和工具提示中。
 | `backgroundColor` | `Color[]`|数据集中圆弧的填充颜色。请参阅[颜色](../general/colors.md#colors)
 | `borderColor` | `Color[]`|数据集中弧线的边框颜色。请参阅[颜色](../general/colors.md#colors)
-| `borderWidth` | `Number []`|数据集中弧线的边框宽度。
+| `borderWidth` | `Number[]`|数据集中弧线的边框宽度。
 | `hoverBackgroundColor` | `Color[]`|悬停时圆弧的填充颜色。
 | `hoverBorderColor` | `Color[]`|悬停时弧线的笔画颜色。
-| `hoverBorderWidth` | `Number []`|悬停时弧线的行程宽度。
+| `hoverBorderWidth` | `Number[]`|悬停时弧线的行程宽度。
 
 ##配置选项
 
-这些是Polar Area图表特有的定制选项。这些选项与[全局图配置选项]（＃global-chart-configuration）合并，并形成图表的选项。
+这些是Polar Area图表特有的定制选项。这些选项与[全局图配置选项](＃global-chart-configuration)合并，并形成图表的选项。
 
 |名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
 | `startAngle` | `Number` | `-0.5 * Math.PI` |起始角度来绘制数据集中第一个项目的弧线。
-| `animation.animateRotate` | `Boolean` | `true` |如果为true，图表将使用旋转动画进行动画处理。该属性位于`options.animation`对象中。
+| `animation.animateRotate` | `Boolean` | `true` |如果为`true`，图表将使用旋转动画进行动画处理。该属性位于`options.animation`对象中。
 | `animation.animateScale` | `Boolean` | `true` |如果为真，将从中心向外将图表缩放。
 
 ##默认选项
 
-我们还可以为创建的每个PolarArea类型更改这些默认值，该对象在`Chart.defaults.polarArea`中可用。更改全局选项仅影响更改后创建的图表。现有图表不变。
+我们还可以为创建的每个`PolarArea`类型更改这些默认值，该对象在`Chart.defaults.polarArea`中可用。更改全局选项仅影响更改后创建的图表。现有图表不变。
 
-例如，要使用`animateScale = false'配置所有新的极区图，您可以执行以下操作：
+例如，要使用`animateScale = false`配置所有新的极区图，您可以执行以下操作：
+
 ```javascript
 Chart.defaults.polarArea.animation.animateScale = false;
 ```
 
-＃＃ 数据结构
+##数据结构
 
-对于极地图，数据集需要包含一组数据点。数据点应该是一个数字，Chart.js将总计所有数字，并计算每个数据的相对比例。
+对于极地图，数据集需要包含一组数据点。数据点应该是一个数字，`Chart.js`将总计所有数字，并计算每个数据的相对比例。
 
 您还需要指定一个标签数组，以便每个切片显示正确的工具提示。
 
