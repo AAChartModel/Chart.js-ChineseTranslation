@@ -1,6 +1,6 @@
-# Popular Extensions
+# 热门扩展
 
-There are many extensions which are available for use with popular frameworks. Some particularly notable ones are listed here.
+`chart.js`有很多可用于流行框架的拓展, 以下是一些较为引人注目的`chart.js` 拓展。
 
 ## Angular
  - <a href="https://github.com/jtblin/angular-chart.js" target="_blank">angular-chart.js</a>
