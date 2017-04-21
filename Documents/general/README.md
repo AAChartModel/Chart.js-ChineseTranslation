@@ -1,8 +1,12 @@
-# General Chart.js Configuration
+# Chart.js通用配置
 
-These sections describe general configuration options that can apply elsewhere in the documentation. 
+这些部分描述了可以在文档中的其他地方应用的通用配置选项。
 
-* [Colors](./colors.md) defines acceptable color values
-* [Font](./fonts.md) defines various font options
-* [Interactions](./interactions/README.md) defines options that reflect how hovering chart elements works
-* [Responsive](./responsive.md) defines responsive chart options that apply to all charts.
+* [Colors](./colors.md)定义可接受的颜色值
+* [Font](./fonts.md) 定义了各种字体选项
+* [Interactions](./interactions/README.md) 定义了反映曲面元素如何工作的选项
+* [Responsive](./responsive.md) 定义适用于所有图表的响应图表选项。
+
+
+
+ 

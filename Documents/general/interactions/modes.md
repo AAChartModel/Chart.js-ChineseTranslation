@@ -1,11 +1,11 @@
-# Interaction Modes
+# 交互方式
+通过悬停或工具提示配置与图形的交互时，可以使用多种不同的模式。
 
-When configuring interaction with the graph via hover or tooltips, a number of different modes are available.
+这些模式将在下面详细说明，以及它们与`intersect`设置的结合方式。
+ 
 
-The modes are detailed below and how they behave in conjunction with the `intersect` setting.
-
-## point
-Finds all of the items that intersect the point.
+## 点
+查找与点相交的所有项目
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -19,8 +19,9 @@ var chart = new Chart(ctx, {
 })
 ```
 
-## nearest
-Gets the item that is nearest to the point. The nearest item is determined based on the distance to the center of the chart item (point, bar). If 2 or more items are at the same distance, the one with the smallest area is used. If `intersect` is true, this is only triggered when the mouse position intersects an item in the graph. This is very useful for combo charts where points are hidden behind bars.
+## 最近的
+获取最接近点的项目。 最近的项目是根据与图表项目中心的距离（点,长条）确定的。 如果2个以上的物品距离相同，则使用最小面积的物品。 如果`intersect`为`true`，则仅当鼠标位置与图形中的项目相交时才会触发。 这对于组合图非常有用，其中点隐藏在条形图的某一个长条后面。
+ 
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -35,13 +36,14 @@ var chart = new Chart(ctx, {
 ```
 
 ## single (deprecated)
-Finds the first item that intersects the point and returns it. Behaves like 'nearest' mode with intersect = true.
+找到与点相交并返回的第一个项。 行为像`最近`模式，`intersect = true`。
 
 ## label (deprecated)
 See `'index'` mode
 
 ## index
-Finds item at the same index. If the `intersect` setting is true, the first intersecting item is used to determine the index in the data. If `intersect` false the nearest item is used to determine the index. 
+查找相同索引项。 如果`intersect`设置为`true`，则第一个相交项用于确定数据中的索引。 如果`intersect`设置为`false`，则使用最近的项来确定索引。
+ 
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -56,10 +58,11 @@ var chart = new Chart(ctx, {
 ```
 
 ## x-axis (deprecated)
-Behaves like `'index'` mode with `intersect = false`.
+像`'index'`模式一样，`intersect = false`。
+ 
+##  数据集
+查找同一数据集中的项目。 如果`intersect`设置为`true`，则第一个相交项用于确定数据中的索引。 如果`intersect`为`false`，则使用最近的项来确定索引。
 
-## dataset
-Finds items in the same dataset. If the `intersect` setting is true, the first intersecting item is used to determine the index in the data. If `intersect` false the nearest item is used to determine the index.
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -74,7 +77,8 @@ var chart = new Chart(ctx, {
 ```
 
 ## x
-Returns all items that would intersect based on the `X` coordinate of the position only. Would be useful for a vertical cursor implementation. Note that this only applies to cartesian charts
+根据位置的`X`坐标返回所有相交的项目。 对于垂直游标实现将是有用的。 请注意，这仅适用于笛卡尔图表
+ 
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -89,7 +93,8 @@ var chart = new Chart(ctx, {
 ```
 
 ## y
-Returns all items that would intersect based on the `Y` coordinate of the position. This would be useful for a horizontal cursor implementation. Note that this only applies to cartesian charts.
+返回基于位置的`Y`坐标相交的所有项目。 这对于水平光标实现将是有用的。 请注意，这仅适用于笛卡尔图表。
+ 
 
 ```javascript
 var chart = new Chart(ctx, {

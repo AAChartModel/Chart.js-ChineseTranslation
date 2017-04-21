@@ -1,8 +1,8 @@
-# Fonts
+# 字体
 
-There are 4 special global settings that can change all of the fonts on the chart. These options are in `Chart.defaults.global`. The global font settings only apply when more specific options are not included in the config.
+有4个特殊的全局设置可以更改图表上的所有字体。这些选项位于`Chart.defaults.global`中。全局字体设置仅适用于配置中未包含更多特定选项的情况。
 
-For example, in this chart the text will all be red except for the labels in the legend.
+例如，在这个图表中，除了图例中的标签外，文本都将是红色的。
 
 ```javascript
 Chart.defaults.global.defaultFontColor = 'red';
@@ -20,9 +20,9 @@ let chart = new Chart(ctx, {
 });
 ```
 
-| Name | Type | Default | Description
+|名称|类型|默认|描述
 | ---- | ---- | ------- | -----------
-| `defaultFontColor` | `Color` | `'#666'` | Default font color for all text.
-| `defaultFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | Default font family for all text.
-| `defaultFontSize` | `Number` | `12` | Default font size (in px) for text. Does not apply to radialLinear scale point labels.
-| `defaultFontStyle` | `String` | `'normal'` | Default font style. Does not apply to tooltip title or footer. Does not apply to chart title.
+| `defaultFontColor` | `Color`| `'＃666'` |所有文本的默认字体颜色。
+| `defaultFontFamily` | `String` | '''Helvetica Neue'，'Helvetica'，'Arial'，sans-serif“`|所有文字的默认字体系列。
+| `defaultFontSize` | `Number` | `12` |文本的默认字体大小（以px为单位）。不适用于径向线性刻度标签。
+| `defaultFontStyle` | `String` | ``normal``|默认字体样式。不适用于工具提示标题或页脚。不适用于图表标题。

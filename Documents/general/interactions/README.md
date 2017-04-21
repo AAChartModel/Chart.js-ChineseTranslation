@@ -1,9 +1,11 @@
-# Interactions
+# 交互
 
-The hover configuration is passed into the `options.hover` namespace. The global hover configuration is at `Chart.defaults.global.hover`. To configure which events trigger chart interactions, see [events](./events.md#events). 
+悬停配置传递到`options.hover`命名空间。 全局悬浮配置位于`Chart.defaults.global.hover`。 要配置哪些事件触发图表交互，请参阅[events](./events.md#events)。
 
-| Name | Type | Default | Description
+| 名称| 类型| 默认| 描述
 | ---- | ---- | ------- | -----------
-| `mode` | `String` | `'nearest'` | Sets which elements appear in the tooltip. See [Interaction Modes](./modes.md#interaction-modes) for details.
-| `intersect` | `Boolean` | `true` | if true, the hover mode only applies when the mouse position intersects an item on the chart.
-| `animationDuration` | `Number` | `400` | Duration in milliseconds it takes to animate hover style changes.
+| `mode` | `String` | `nearest ` |设置浮动提示框中出现的元素。 有关详细信息，请参阅[Interaction Modes](./modes.md#interaction-modes)）。
+| `intersect` | `Boolean` | `true` | 如果为`true`，则悬停模式仅适用于鼠标位置与图表上的项目相交。
+| `animationDuration`| `Number` | `400` | 鼠标悬停时间长度以毫秒为单位变化。
+
+ 

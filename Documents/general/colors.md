@@ -1,14 +1,14 @@
-# Colors
+# 颜色
+当向Chart选项提供颜色时，可以使用多种格式。 您可以将颜色指定为十六进制，RGB或HSL符号中的字符串。 如果需要颜色但未指定颜色，`Chart.js`将使用全局默认颜色。 此颜色存储在`Chart.defaults.global.defaultColor`中。 它最初设置为`rgba（0，0，0，0.1）`。
 
-When supplying colors to Chart options, you can use a number of formats. You can specify the color as a string in hexadecimal, RGB, or HSL notations. If a color is needed, but not specified, Chart.js will use the global default color. This color is stored at `Chart.defaults.global.defaultColor`. It is initially set to `'rgba(0, 0, 0, 0.1)'`
+您也可以传递[CanvasGradient](https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient)对象。 在传递到图表之前，您将需要创建它，但使用它可以实现一些有趣的效果。
 
-You can also pass a [CanvasGradient](https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient) object. You will need to create this before passing to the chart, but using it you can achieve some interesting effects.
+## 模式和渐变
+一个替代选项是传递[CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)或[CanvasGradient](https://developer.mozilla.org/en/docs/Web/API/CanvasGradient)对象，而不是字符串颜色。
 
-## Patterns and Gradients
+例如，如果要从图像中填充图案的数据集，则可以执行以下操作。
 
-An alternative option is to pass a [CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern) or [CanvasGradient](https://developer.mozilla.org/en/docs/Web/API/CanvasGradient) object instead of a string colour. 
 
-For example, if you wanted to fill a dataset with a pattern from an image you could do the following.
 
 ```javascript
 var img = new Image();
@@ -28,10 +28,10 @@ img.onload = function() {
     })
 }
 ```
+使用图形填充数据图形可以帮助具有视力缺陷（例如色盲或局部视觉）的观众[更容易的了解您的数据](http://betweentwobrackets.com/data-graphics-and-colour-vision/)。
 
-Using pattern fills for data graphics can help viewers with vision deficiencies (e.g. color-blindness or partial sight) to [more easily understand your data](http://betweentwobrackets.com/data-graphics-and-colour-vision/).
+使用 [Patternomaly](https://github.com/ashiguruma/patternomaly) 库可以生成填充数据集的模式。
 
-Using the [Patternomaly](https://github.com/ashiguruma/patternomaly) library you can generate patterns to fill datasets.
 
 ```javascript
 var chartData = {
