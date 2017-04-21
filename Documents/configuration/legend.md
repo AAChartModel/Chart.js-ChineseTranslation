@@ -8,20 +8,20 @@ legend配置被传递到`options.legend`命名空间。图表图例的全局选�
 |名称|类型|默认|描述
 | ----- | ---- | -------- | -----------
 | `display` | `Boolean` | `true` |是显示的传奇
-| `position` | `String` | `'top'` |图例的位置[更多...]（＃位置）
+| `position` | `String` | `'top'` |图例的位置[更多...](#position)
 | `fullWidth` | `Boolean` | `true` |标记这个框应该占据画布的整个宽度（按下其他框）。这在日常使用中不太可能需要改变。
-| `onClick` | `功能`| |点击事件在标签项上注册时调用的回调
-| `onHover` | `功能`| |在“mousemove”事件注册在标签项上时调用的回调
-| `reverse` | `Boolean` | `false` | Legend将以相反的顺序显示数据集。
-| `标签`| `Object` | |请参阅下面的[图例标签配置]（＃legend-label-configuration）部分。
+| `onClick` | `Function`| |点击事件在标签项上注册时调用的回调
+| `onHover` | `Function`| |在`mousemove`事件注册在标签项上时调用的回调
+| `reverse` | `Boolean` | `false` | `Legend`将以相反的顺序显示数据集。
+| `labels`| `Object` | |请参阅下面的[图例标签配置](＃legend-label-configuration)部分。
 
 ## 位置
 图例的位置选项是：
 
-*`顶`
-*`左`
-*`底`
-*`对`
+* `'top'`//顶部
+* `'left'`//左边👈
+* `'bottom'`//底部
+* `'right'`//右边👉
 
 ## 图例标签配置
 
@@ -32,12 +32,12 @@ legend配置被传递到`options.legend`命名空间。图表图例的全局选�
 | `boxWidth` | `Number` | `40` |彩盒宽度
 | `fontSize` | `Number` | `12` |文字的字体大小
 | `fontStyle` | `String` | `正常`|文字的字型
-| `fontColor` |颜色| `'＃666'` |文字颜色
+| `fontColor` |`Color`| `'＃666'` |文字颜色
 | `fontFamily` | `String` | `Helvetica Neue`，`Helvetica`，`Arial`，`sans-serif`|字体系列的图例文字。
 | `padding` | `Number` | `10` |彩色盒子之间的填充。
-| `generateLabels` | `功能`| |为图例中的每个事物生成图例项目。默认实现返回颜色框的文本+样式。有关详细信息，请参阅[图例项目]（＃chart-configuration-legend-item-interface）。
-| `filter` | `功能`| `null` |从图例中过滤图例。接收2个参数，[图例项目]（＃图表配置 - 图例项目界面）和图表数据。
-| `usePointStyle` | `Boolean` | `false` |标签样式将匹配相应的点样式（大小基于fontSize，在这种情况下不使用boxWidth）。
+| `generateLabels` | `Function`| |为图例中的每个事物生成图例项目。默认实现返回颜色框的文本+样式。有关详细信息，请参阅[Legend Item](#chart-configuration-legend-item-interface)。
+| `filter` | `Function`| `null` |从图例中过滤图例。接收2个参数， [Legend Item](#chart-configuration-legend-item-interface)和图表数据。
+| `usePointStyle` | `Boolean` | `false` |标签样式将匹配相应的点样式（大小基于`fontSize`，在这种情况下不使用`boxWidth`）。
 
 
 
@@ -48,34 +48,34 @@ legend配置被传递到`options.legend`命名空间。图表图例的全局选�
 
 ```javascript
 {
-    //将显示的标签
+    //将要显示的标签
     text：String，
 
-    //填充图例框的样式
-    fillStyle：颜色，
+    //图例框的填充样式
+    fillStyle：Color，
 
     //如果为true，则此项表示隐藏的数据集。标签将被渲染，具有贯穿效果
-    hidden：布尔值，
+    hidden：Boolean，
 
-    //对于框边框请参阅https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
+    //对于小方块的边框请参阅https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
     lineCap：String，
 
-    //对于框边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
+    //对于小方块的边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
     lineDash：Array [Number]，
 
-    //对于框边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
+    //对于小方块的边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
     lineDashOffset：Number，
 
-    //对于框边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
+    //对于小方块的边框请参阅https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
     lineJoin：String，
 
-    //框边框宽度
+    //小方块的边框宽度
     lineWidth：Number，
 
-    //图例框的中风风格
-    strokeStyle：颜色
+    //图例小方块的中风风格
+    strokeStyle：Color
 
-    //图例框的点样式（仅在usePointStyle为true时使用）
+    //图例小方块的点样式（仅在usePointStyle为true时使用）
     pointStyle：String
 }
 ```
@@ -85,18 +85,18 @@ legend配置被传递到`options.legend`命名空间。图表图例的全局选�
 以下示例将创建一个启用了图例的图表，并将所有文字变成红色。
 
 ```javascript
-var chart = new Chart（ctx，{
-    键入：'bar'，
-    数据：数据，
-    选项：{
-        传说：{
-            显示：真，
-            标签： {
-                fontColor：'rgb（255，99，132）'
-            }
-        }
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'rgb(255, 99, 132)'
+            }
+        }
 }
-}）;
+});
 ```
 
 ## 自定义点击操作
@@ -104,7 +104,9 @@ var chart = new Chart（ctx，{
 想要在点击图例中的项目时触发不同的行为是常见的。这可以使用config对象中的回调轻松实现。
 
 默认图例点击处理程序是：
+
 ```javascript
+
 function（e，legendItem）{
     var index = legendItem.datasetIndex;
     var ci = this.chart;
@@ -154,33 +156,33 @@ var newLegendClickHandler = function（e，legendItem）{
     }
 };
 
-var chart = new Chart（ctx，{
-    输入：'line'，
-    数据：数据，
-    选项：{
-        传说：{
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        legend: {
 
-        }
-    }
-}）;
+        }
+    }
+});
 ```
 
 现在当您单击此图表中的图例时，前两个数据集的可见性将被链接在一起。
 
-## HTML传奇
+## HTML图例
 
-有时你需要一个非常复杂的传奇。在这些情况下，生成HTML图例是有意义的。图表在其原型上提供了一个“generateLegend（）”方法，该方法返回图例的HTML字符串。
+有时你需要一个非常复杂的传奇。在这些情况下，生成HTML图例是有意义的。图表在其原型上提供了一个`generateLegend（）`方法，该方法返回图例的HTML字符串。
 
 要配置如何生成此图例，可以更改“legendCallback”配置属性。
 
 ```javascript
-var chart = new Chart（ctx，{
-    输入：'line'，
-    数据：数据，
-    选项：{
-        legendCallback：function（chart）{
-            //返回HTML字符串。
-        }
-    }
-}）;
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        legendCallback: function(chart) {
+            // 返回 HTML 字符串
+        }
+    }
+});
 ```
