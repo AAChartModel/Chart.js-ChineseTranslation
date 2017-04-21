@@ -13,54 +13,54 @@
 在此示例中，我们为单个数据集创建条形图，并在我们的页面中呈现。您可以在[使用文档](./getting-started/usage.md) 中查看使用`Chart.js`的所有方法
 
 ```html
-<canvas id =“myChart”width =“400”height =“400”> </ canvas>
+<canvas id="myChart" width="400" height="400"></canvas>
 <script>
-var ctx = document.getElementById（“myChart”）。getContext（'2d'）;
-var myChart = new Chart（ctx，{
-    键入：'bar'，
-    资料：{
-        标签：[“红色”，“蓝色”，“黄色”，“绿色”，“紫色”，“橙色”]，
-        数据集：[{
-            标签：'＃of Votes'，
-            数据：[12，19，3，5，2，3]
-            背景颜色： [
-                'rgba（255，99，132，0.2）'，
-                'rgba（54，162，235，0.2）'，
-                'rgba（255，206，86，0.2）'，
-                'rgba（75，192，192，0.2）'，
-                'rgba（153，102，255，0.2）'，
-                'rgba（255，159，64，0.2）'
-            ]，
-            borderColor：[
-                'rgba（255,99,132,1）'，
-                'rgba（54，162，235，1）'，
-                'rgba（255，206，86，1）'，
-                'rgba（75，192，192，1）'，
-                'rgba（153，102，255，1）'，
-                'rgba（255，159，64，1）'
-            ]，
-            borderWidth：1
-        }]
-    }，
-    选项：{
-        比例：{
-            yAxes：[{
-                滴答：{
-                    beginAtZero：true
-                }
-            }]
-        }
-    }
-}）;
-</ script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
 ```
 
 ## 贡献
 
 在向项目提交问题或提出请求之前，请先点击[贡献指南](https://github.com/chartjs/Chart.js/blob/master/CONTRIBUTING.md)。
 
-对于使用Chart.js的支持，请使用Stack Overflow上的[`chartjs`标签](http://stackoverflow.com/questions/tagged/chartjs)发布问题。
+对于使用`Chart.js`的支持，请使用`Stack Overflow`上的[chartjs标签](http://stackoverflow.com/questions/tagged/chartjs)发布问题。
 
-## 执照
+## 许可证
 
-Chart.js可以在[MIT许可证](http://opensource.org/licenses/MIT)下找到。
+`Chart.js`开源项目的使用遵循[MIT许可证](http://opensource.org/licenses/MIT)。
