@@ -1,15 +1,14 @@
-# Integration
+# 集成
 
-Chart.js can be integrated with plain JavaScript or with different module loaders. The examples below show how to load Chart.js in different systems.
-
-## ES6 Modules
+`Chart.js`可以与纯 JavaScript 集成或与不同的模块加载器集成,下面的例子显示了如何在不同的系统中加载 `chart.js`。
+## ES6 模块
 
 ```javascript
 import Chart from 'chart.js'
 var myChart = new Chart(ctx, {...})
 ```
 
-## Script Tag
+## Script 标签
 
 ```html
 <script src="path/to/Chartjs/dist/Chart.js"></script>
@@ -18,7 +17,7 @@ var myChart = new Chart(ctx, {...})
 </script>
 ```
 
-## Common JS
+## 常见的 JS
 
 ```javascript
 var Chart = require('chart.js')
