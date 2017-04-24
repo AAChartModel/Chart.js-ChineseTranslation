@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><meta name="renderer" content="webkit"/><meta property="qc:admins" content="15317273575564615446375"/><meta property="og:image" content="https://static.segmentfault.com/v-58fb6746/global/img/touch-icon.png"/><meta name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/><meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ"/><meta name="apple-itunes-app" content="app-id=958101793, app-argument="><title>chart. js 官方文档中文译本 - 个人文章 - SegmentFault</title><meta name="description" content="条形图 条形图提供了一种显示以垂直长条表示的数据值的方式。有时用于显示代表某一趋势的数据，并且可同时并排比较多个数据集。 {代码...} 使用示例 {代码...} 数据集属性 条形图允许为每个数据集指定多个属性。..."/><meta name="keywords" content="javascript,html,html5"/><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="SegmentFault"/><link rel="shortcut icon" href="https://static.segmentfault.com/v-58fb6746/global/img/favicon.ico"/><link rel="apple-touch-icon" href="https://static.segmentfault.com/v-58fb6746/global/img/touch-icon.png"><meta name="msapplication-TileColor" content="#009a61"/><meta name="msapplication-square150x150logo" content="https://static.segmentfault.com/v-58fb6746/global/img/touch-icon.png"/><meta name="userId" value="1030000007133927" id="SFUserId"/><meta name="userRank" value="1" id="SFUserRank"/><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="/feeds/questions"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="/feeds/blogs"><link rel="stylesheet" href="https://static.segmentfault.com/v-58fb6746/global/css/global.css"/><link rel="stylesheet" href="https://static.segmentfault.com/v-58fb6746/blog/css/blog.css"/><link rel="stylesheet" href="https://static.segmentfault.com/v-58fb6746/global/css/responsive.css"/></head><body data-mod="blog"
+    class="blog-post "> 
+    <div class="wrap">
+  
+
+    <div class="container mt30">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 main ">
+
+                
+                <div class="article fmt article__content" data-id="1190000009176715" data-license="">
+                    
+<h1>条形图</h1>
+<p>条形图提供了一种显示以垂直长条表示的数据值的方式。有时用于显示代表某一趋势的数据，并且可同时并排比较多个数据集。</p>
+<pre><code class="javascript">{
+"type": "bar",
+"data": {
+"labels": [
+"January", 
+"February", 
+"March", 
+"April", 
+"May", 
+"June", 
+"July"
+],
+"datasets": [{
+"label": "My First Dataset",
+"data": [65, 59, 80, 81, 56, 55, 40],
+"fill": false,
+"backgroundColor": [
+"rgba(255, 99, 132, 0.2)",
+"rgba(255, 159, 64, 0.2)",
+"rgba(255, 205, 86, 0.2)",
+"rgba(75, 192, 192, 0.2)",
+"rgba(54, 162, 235, 0.2)",
+"rgba(153, 102, 255, 0.2)",
+"rgba(201, 203, 207, 0.2)"
+],
+"borderColor": [
+"rgb(255, 99, 132)",
+"rgb(255, 159, 64)",
+"rgb(255, 205, 86)",
+"rgb(75, 192, 192)",
+"rgb(54, 162, 235)",
+"rgb(153, 102, 255)",
+"rgb(201, 203, 207)"
+],
+"borderWidth": 1
+}]
+},
+"options": {
+"scales": {
+"yAxes": [{
+"ticks": {
+"beginAtZero": true
+}
+}]
+}
+}
+}</code></pre>
+<h2>使用示例</h2>
+<pre><code class="javascript">var myBarChart = new Chart(ctx, {
+type: 'bar',
+data: data,
+options: options
+});</code></pre>
+<h2>数据集属性</h2>
+<p>条形图允许为每个数据集指定多个属性。这些属性用于设置特定数据集的显示效果。例如，通常这样设置条形图中长条的颜色。</p>
+<p>一些属性可以指定为数组。如果这些值设置为数组值，则第一个值适用于条形图中第一个长条，第二个值应用于条形图中第二个长条，以此类推。</p>
+<table>
+<thead><tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td><code>String</code></td>
+<td>数据集的标签出现在图例和浮动提示框中</td>
+</tr>
+<tr>
+<td><code>xAxisID</code></td>
+<td><code>String</code></td>
+<td>打印此数据集的x轴的ID.如果未指定，则默认为第一个找到的x轴的ID</td>
+</tr>
+<tr>
+<td><code>yAxisID</code></td>
+<td><code>String</code></td>
+<td>要绘制此数据集的y轴的ID.如果未指定，则默认为首次找到的y轴的ID</td>
+</tr>
+<tr>
+<td><code>backgroundColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>条形图的填充颜色,请参阅<a>颜色</a>
+</td>
+</tr>
+<tr>
+<td><code>borderColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>条形图轮廓描边的颜色,请参阅<a>颜色</a>
+</td>
+</tr>
+<tr>
+<td><code>borderWidth</code></td>
+<td><code>Number / Number []</code></td>
+<td>条的轮廓描边宽度（以像素为单位）</td>
+</tr>
+<tr>
+<td><code>borderSkipped</code></td>
+<td><code>String</code></td>
+<td>哪个边缘跳过绘制边框.<a>更多...</a>
+</td>
+</tr>
+<tr>
+<td><code>hoverBackgroundColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>悬停时条形图的填充颜色</td>
+</tr>
+<tr>
+<td><code>hoverBorderColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>悬停时条形图的轮廓描边颜色</td>
+</tr>
+<tr>
+<td><code>hoverBorderWidth</code></td>
+<td><code>Number / Number []</code></td>
+<td>悬停时条形图轮廓描边宽度</td>
+</tr>
+</tbody>
+</table>
+<h3>borderSkipped</h3>
+<p>此设置用于避免在填充底部绘制条形笔触。一般来说，除了创建从条形图导出的图表类型之外，不需要更改。</p>
+<p>选项是：<br>*<code>bottom</code></p>
+<ul>
+<li><p><code>left</code></p></li>
+<li><p><code>top</code></p></li>
+<li><p><code>right</code></p></li>
+</ul>
+<h2>配置选项</h2>
+<p>条形图定义了以下配置选项。这些选项与全局图表配置选项<code>Chart.defaults.global</code>合并，以形成传递到图表的选项。</p>
+<table>
+<thead><tr>
+<th>名称</th>
+<th>类型</th>
+<th>默认</th>
+<th>描述</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>barPercentage</code></td>
+<td><code>Number</code></td>
+<td><code>0.9</code></td>
+<td>每个栏的可用宽度的百分比<code>（0-1）</code>应在类别百分比内。 <code>1.0</code>将占据整个类别的宽度，并将条形图放在彼此旁边。  <a>更多...</a>
+</td>
+</tr>
+<tr>
+<td><code>categoryPercentage</code></td>
+<td><code>Number</code></td>
+<td><code>0.8</code></td>
+<td>用于设置条形图中长条的每个数据点的可用宽度的百分比<code>（0-1）</code>（小数据集的网格线之间的间距）。 <a>更多...</a>
+</td>
+</tr>
+<tr>
+<td><code>barThickness</code></td>
+<td><code>Number</code></td>
+<td> </td>
+<td>手动设置每个栏的宽度（以像素为单位）。如果未设置，则使用<code>barPercentage</code>和<code>categoryPercentage</code>自动调整条形图;</td>
+</tr>
+<tr>
+<td><code>maxBarThickness</code></td>
+<td><code>Number</code></td>
+<td> </td>
+<td>设置此项以确保自动调整的尺寸的尺寸不会大于此厚度。仅当<code>barThickness</code>未设置（启用自动调整大小）时才起作用。</td>
+</tr>
+<tr>
+<td><code>gridLines.offsetGridLines</code></td>
+<td><code>Boolean</code></td>
+<td><code>true</code></td>
+<td>如果为<code>true</code>，则特定数据点的条形线落在网格线之间。如果为<code>false</code>，网格线将沿着条形图的中间。 <a>更多...</a>（</td>
+</tr>
+</tbody>
+</table>
+<h3>offsetGridLines</h3>
+<p>如果为<code>true</code>，则特定数据点的条形线落在网格线之间。如果为<code>false</code>，网格线将沿着条形图的中间。这在实际开发环境中不太可能需要改变。它存在更多的方式通过配置存在重用轴代码</p>
+<h1>气泡图</h1>
+<p>气泡图用于显示一组三维数据。气泡图中气泡的位置由前两个维度(水平坐标 x 和垂直坐标 y )确定, 气泡的大小由第三个维度 r 来确定。</p>
+<pre><code class="javascript"> {
+    “type”：“bubble”，
+    “data”：{
+        “datasets”：[{
+            “label”：“第一个数据集”，
+            “data”：[{
+                “x”：20，
+                “y”：30，
+                “r”：15
+            }，{
+                “x”：40，
+                “y”：10，
+                “r”：10
+            }]，
+            “backgroundColor”：“rgb（255，99，132）”
+        }]
+    }，
+}</code></pre>
+<h2>使用示例</h2>
+<pre><code class="javascript">//气泡图
+var myBubbleChart = new Chart(ctx,{
+    type: 'bubble',//设置图形类别为气泡图
+    data: data, //设置图形数据
+    options: options//设置图形属性配置选项
+});</code></pre>
+<h2>数据集属性</h2>
+<p>气泡图允许为每个数据集指定多个属性。这些用于设置特定数据集的显示属性。例如，通常这样设置气泡的颜色。</p>
+<p>除“label”之外的所有属性都可以指定为数组。如果将这些值设置为数组值，则第一个值适用于数据集中的第一个气泡，第二个值适用于第二个气泡，以此类推。</p>
+<table>
+<thead><tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td><code>String</code></td>
+<td>数据集的标签出现在图例和浮动提示框中。</td>
+</tr>
+<tr>
+<td><code>backgroundColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>气泡的填充颜色。</td>
+</tr>
+<tr>
+<td><code>borderColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>气泡的轮廓描边颜色。</td>
+</tr>
+<tr>
+<td><code>borderWidth</code></td>
+<td><code>Number / Number []</code></td>
+<td>气泡的轮廓描边的宽度(以像素为单位)。</td>
+</tr>
+<tr>
+<td><code>hoverBackgroundColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>悬停时的气泡背景颜色。</td>
+</tr>
+<tr>
+<td><code>hoverBorderColor</code></td>
+<td><code>Color/Color[]</code></td>
+<td>悬停时的气泡边框颜色。</td>
+</tr>
+<tr>
+<td><code>hoverBorderWidth</code></td>
+<td><code>Number / Number []</code></td>
+<td>悬停时点的边界宽度。</td>
+</tr>
+<tr>
+<td><code>hoverRadius</code></td>
+<td><code>Number / Number []</code></td>
+<td>悬停时添加到数据半径的附加半径。</td>
+</tr>
+</tbody>
+</table>
+<h2>配置选项</h2>
+<p>气泡图没有唯一的配置选项。要配置所有气泡共有的选项，使用[point element options]（../ configuration / elements / point.md＃point-configuration）。</p>
+<h2>默认选项</h2>
+<p>我们也可以更改气泡图类型的默认值。这样做将使所有创建的气泡图在此之后创建新的默认值。气泡图的默认配置可以在<code>Chart.defaults.bubble</code>中访问。</p>
+<h2>数据结构</h2>
+<p>对于气泡图，数据集需要包含一组数据点。每个点都必须实现[bubble data object]（＃bubble-data-object）接口。</p>
+<h3>Bubble Data Object</h3>
+<p>气泡图的数据以对象的形式传递。对象必须实现以下界面。重要的是要注意，图表中的radius属性<code>r</code>是<strong>不可缩放的</strong>。它表示在气泡图上对应的气泡的原始半径（以像素为单位）。</p>
+<pre><code class="javascript">{
+    // X轴坐标的值
+    x：&lt;Number&gt;，
+
+    // Y轴坐标的值
+    y：&lt;Number&gt;，
+
+    //气泡的半径大小(不可缩放)。
+    r：&lt;Number&gt;
+}</code></pre>
+
+                </div>
+                                                
+                <div class="clearfix mt10">
+
+                   
+    </div>
+
+
+
+
+
+
+                
+            </div><!-- /.main -->
+
+
+            <div class="col-xs-12 col-md-3 side">
+ 
+
+
+              
+
+
+     
+
+
+                <div class="widget-share__full" data-text="chart. js 官方文档中文译本"
+ data-url="https://segmentfault.com/a/1190000009176715?share_user=1030000007133927" data-shorturl="http://sfau.lt/b5MFrH"></div>
+
+                <div class="post-nav hidden-xs">
+                    <div class="panel panel-default widget-outline">
+                        <div class="panel-heading">文章目录</div>
+                        <div class="panel-body">
+                            <div class="nav-body">
+                                <div class="highlight-title"></div>
+                                <ul class="articleIndex"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.side -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+ 
+<script id="loginModal" type="text/template">
+    <div class="row bg-white login-modal">
+        <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+            <h1 class="h4 text-muted login-title">用户登录</h1>
+            <form action="/api/user/login" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="username" class="control-label">手机号 或 Email</label>
+                    <input type="text" class="form-control" name="username" required placeholder="11 位手机号 或 Email"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label><span class="pull-right"><a
+                                href="/user/forgot">忘记密码</a></span>
+                    <input type="password" class="form-control" name="password" required placeholder="密码">
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right pl20 pr20"
+                            onclick='ga("send", "event", "email login button", "clicked", "login modal");'>登录
+                    </button>
+                </div>
+            </form>
+            <p class="h4 text-muted visible-xs-block h4">快速登录</p>
+            <div class="widget-login mt30">
+                <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+                <a href="/user/oauth/google" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span
+                            class="icon-sn-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>
+                <a href="/user/oauth/github" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span
+                            class="icon-sn-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>
+                <a href="/user/oauth/weibo" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span
+                            class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+                <a href="/user/oauth/qq" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                            class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+                <a href="/user/oauth/weixin" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                            class="icon-sn-weixin"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+                <a href="/user/oauth/linkedin" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "linkedin"});'><span
+                            class="icon-sn-linkedin"></span> <strong class="visible-xs-inline">LinkedIn 账号</strong></a>
+                <span id="loginShowMore" style="cursor: pointer" class="mb5"><span class="icon-sn-dotted"></span><strong
+                            class="visible-xs-inline">•••</strong></span>
+                <a href="/user/oauth/twitter" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span
+                            class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+                <a href="/user/oauth/facebook" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span
+                            class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+                <a href="/user/oauth/douban" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span
+                            class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+            </div>
+        </div>
+        <div class="login-vline hidden-xs hidden-sm"></div>
+        <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+            <h1 class="h4 text-muted login-title">注册新账号</h1>
+            <form action="/api/user/phone/register" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="name" class="control-label">名字</label>
+                    <input type="text" class="form-control" name="name" required placeholder="真实姓名或常用昵称">
+                </div>
+
+
+                <div class="form-group js-register-switch-box">
+                    <div class="mb10">
+                        <label class="radio-inline">
+                            <input type="radio" name="register_type" value="phone" checked> 用手机号注册
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="register_type" value="mail"> 用 Email 注册
+                        </label>
+                    </div>
+                    <div class="js-register-switch-content">
+                        <input type="phone" class="form-control mb15" name="phone" required placeholder="仅支持大陆手机号"
+                               autocomplete="off">
+                        <div class="input-group"><input name="code" type="text"
+                                                        class="form-control js-user-login__phone-code-value"
+                                                        placeholder="短信验证码">
+                            <span class="input-group-btn"><button class="btn btn-default js-user-login__phone-vaild-btn"
+                                                                  style="width:96px;" type="button">获取验证码</button></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+                </div>
+                <div class="form-group" style="display:none;">
+                    <label class="required control-label">验证码</label>
+                    <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+                    <div class="mt10"><a id="loginReloadCaptcha" href="javascript:void(0)"><img
+                                    data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50"/></a>
+                    </div>
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary pl20 pr20 pull-right"
+                            onclick='ga("send", "event", "email register button", "clicked", "login modal");'>注册
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="position: absolute;transform: scale(0.5,0.5) translate(136%,-114%);">
+        <img src="https://static.segmentfault.com/v-58fb6746/global/img/fool/login@2x.png">
+    </div>
+
+    <div class="text-center text-muted mt30">
+    </div>
+</script>
+<script id="bindPhoneModal" type="text/template">
+    <div class="row bg-white bindphone-model">
+        <div class="col-md-12">
+            <div class="alert alert-warning" role="alert">
+                为了保证账号安全，请先绑定手机
+            </div>
+            <div>
+                <form class="form-horizontal form__bindphone-apply" style="background-color:#fff;padding:0;">
+                    <div class="form-group ">
+                        <label for="phoneNumber" class="col-sm-3 control-label required" >手机号码</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control bindphone--phone" id="phoneNumber" name="phone" placeholder="仅只支持大陆手机号">
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="authCode" class="col-sm-3 control-label required">验证码</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control bindphone--code" name="code" placeholder="短信验证码">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default user-bind__phone-vaild-btn" type="button">获取验证码</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "https://static.segmentfault.com/v-58fb6746"
+        };
+        w.SF.token = (function () {
+    var _ZKdqGnD = /* '1Y'//'1Y' */''+'93'//'M'
++//'V'
+'V'+'7'//'rJX'
++'bb'//'9'
++//'Fny'
+'c'+'5'//'VqN'
++//'Qj'
+'822'+//'1Kr'
+'93'+//'DoE'
+'7c5'+'ji'//'ji'
++'0a'//'Z'
++//'6'
+'f95'+'Fn'//'Fn'
++//'X'
+'X'+//'o'
+'70'+'2f4'//'hwd'
++'0'//'WD'
++'v'//'v'
++//'JM'
+'d'+//'6Kk'
+'aa6'+//'5j'
+'5j'+'2H'//'2H'
++''///*'Hz'*/'Hz'
++//'sfA'
+'f'+//'O'
+'8', _Ednb = [[2,3],[15,17],[20,22],[20,21],[26,27],[30,32],[30,32]];
+
+    for (var i = 0; i < _Ednb.length; i ++) {
+        _ZKdqGnD = _ZKdqGnD.substring(0, _Ednb[i][0]) + _ZKdqGnD.substring(_Ednb[i][1]);
+    }
+
+    return _ZKdqGnD;
+})();;
+    })(window);
+
+                var lock = {
+        type: "",
+        text: '',
+        table: {"ban_post":[1,"\u4f60\u5df2\u7ecf\u88ab\u7981\u8a00, \u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c, \u5982\u6709\u7591\u4e49\u8bf7\u63d0\u4ea4\u7533\u8bc9, \u6216\u8005\u53d1\u90ae\u4ef6\u5230pr@segmentfault.com"]}
+    };
+</script>
+    <script crossorigin src="https://static.segmentfault.com/v-58fb6746/3rd/assets.js"></script>
+    <script crossorigin src="https://static.segmentfault.com/v-58fb6746/blog/script/post.min.js"></script>
+
+<script async src="//sponsor.segmentfault.com/asyncjs.php"></script>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-918487-8']);
+    _gaq.push(['_trackPageview']);
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            
+        
+
+                        
+
+    ga('create', 'UA-918487-8', 'auto', {
+        'userID'
+    : 1030000007133927,
+        'createdTime'
+    : 1476178482,
+        'now'
+    : 1493021310 });
+    ga('set', 'dimension1', 'active_registed_visitor');
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+</html>
+
