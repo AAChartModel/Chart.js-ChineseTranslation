@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://img.hcharts.cn/highcharts/highcharts-more.js
+            
+            "></script>
+    </head>
+    <body>
+        <div id="container" style="width:360px">
+            
+            <div id="header" style="background-color:#FFA360;">
+                <h4 style="margin-bottom:0;">常规图形</h4></div>
+            
+            <div id="cell0" style="background-color:#FFD700;height:180px;width:180px;float:left;">
+            </div>
+            
+            <div id="cell2" style="background-color:#EEEEEE;height:180px;width:180px;float:left;">
+                内容在这里</div>
+            
+            <div id="cell3" style="background-color:#FFD700;height:180px;width:180px;float:left;">
+            </div>
+            
+            <div id="cell4" style="background-color:#EEEEEE;height:180px;width:180px;float:left;">
+                内容在这里</div>
+            
+            
+            
+            
+            <div id="cell5" style="background-color:#FFD700;height:180px;width:180px;float:left;">
+            </div>
+            
+            <div id="cell6" style="background-color:#EEEEEE;height:180px;width:180px;float:left;">
+                内容在这里</div>
+            
+            
+            <div id="header" style="background-color:#FFA360;">
+                <h4 style="margin-bottom:0;">辐射化图形</h4></div>
+            
+            <div id="cell7" style="background-color:#FFD700;height:180px;width:180px;float:left;">
+            </div>
+            
+            <div id="cell8" style="background-color:#EEEEEE;height:180px;width:180px;float:left;">
+                内容在这里</div>
+            
+            <div id="cell9" style="background-color:#FFD700;height:180px;width:180px;float:left;">
+            </div>
+            
+            <div id="cell10" style="background-color:#EEEEEE;height:180px;width:180px;float:left;">
+                内容在这里</div>
+            
+            
+            
+            
+            <div id="cell11" style="background-color:#FFD700;height:180px;width:180px;float:left;">
+            </div>
+            
+            <div id="cell12" style="background-color:#EEEEEE;height:180px;width:180px;float:left;">
+                辐射化图形</div>
+        </div>
+        
+        
+        
+        <script language="JavaScript">
+            $(document).ready(function() {
+                              var chart = {
+                              type: 'bar',
+                              polar:true
+                              };
+                              
+                              var title = {
+                              text: ''
+                              };
+                              
+                              var subtitle = {
+                              text: ''
+                              };
+                              
+                              var xAxis = {
+                              title: {
+                              text: null
+                              }
+                              };
+                              
+                              var yAxis = {
+                              min: 0,
+                              title: {
+                              text: 'Population (millions)',
+                              align: 'high'
+                              },
+                              labels: {
+                              overflow: 'justify'
+                              }
+                              };
+                              
+                              var tooltip = {
+                              valueSuffix: ' millions'
+                              };
+                              
+                              var plotOptions = {
+                              bar: {
+                              dataLabels: {
+                              enabled: true
+                              }
+                              }
+                              };
+                              
+                              var legend = {
+                              layout: 'vertical',
+                              align: 'right',
+                              verticalAlign: 'top',
+                              x:-30,
+                              y: 130,
+                              floating: true,
+                              borderWidth: 1,
+                              backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                              shadow: true
+                              };
+                              
+                              var credits = {
+                              enabled: false
+                              };
+                              
+                              var series= [{
+                                           name: 'Year 1800',
+                                           data: [12,13,14,15,16,17,18]
+                                           },
+                                           ];
+                              
+                              var json = {};
+                              json.chart = chart;
+                              json.title = title;
+                              json.subtitle = subtitle;
+                              json.tooltip = tooltip;
+                              json.legend = legend;
+                              json.xAxis = xAxis;
+                              json.yAxis = yAxis;
+                              json.series = series;
+                              json.plotOptions = plotOptions;
+                              json.credits = credits;
+                              
+                              var chartTypeArr =["column","bar","line","spline","area","areaspline","column","bar","line","spline","area","areaspline",];
+                              for (var i = 0; i <13; i++) {
+                              json.chart.type = chartTypeArr[i];
+                              if(i>=6){
+                              json.chart.polar=false;
+                              }
+                              
+                              var string='#cell';
+                              var Sum=string+i;
+                              $(Sum).highcharts(json);
+                               }
+   
+                              });
+            </script>
+    </body>
+</html>
+
+
+
+
