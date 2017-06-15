@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Dom操作学习</title>
+	</head>
+	<body>
+		<p id="paragraphOne">hello world</p>
+		<p id="paragraph2">元素样式中的颜色将要被改变</p>
+		<!--如需用户点击某一个元素时执行代码,请向 html 事件属性添加 JavaScript 代码
+			onclick = JavaScript;
+		-->
+		<a href="#"></a>
+		<p onclick="this.innerHTML='谢谢点击'">点击文本改变内容样式</p>
+		<div id="fatherDiv" onmouseover="mouseOverFunc(this)" onmouseout="mouseOutFunc(this)" style="background-color: red; width: 200px; height: 100px;">
+			🖱鼠标移到上面将改变颜色
+			<p id="paragraph3">这是一个将要被删除的 html 元素</p>
+		</div>
+		<button onclick="addNewNode()">点击按钮添加一个新的 html 元素</button>
+		<button onclick="deleteNode()">点击按钮删除一个 html 元素</button>
+		<button onclick="deleteNodeWithAnotherWay()">点击按钮用一种更常用的方式来删除 html 元素</button>
+		<script>
+			//在 JavaScript 中, document.write() 用于直接向 html 输出流写内容
+			document.write(Date());
+			/*改变元素的内容,使用的这个语法
+			 * document.getElementById(id).innerHTML = new html;
+			 */
+			document.getElementById("paragraphOne").innerHTML = "通过 id 查找到了 html 元素并改变了元素内容";
+			/*改变 html 元素样式,使用的是这个语法
+			 *document.getElemenId(id).style.property = new style
+			 */
+			document.getElementById("paragraph2").style.color ="red";
+			function mouseOverFunc(sender){
+				//修改样式
+				sender.style.backgroundColor = "green";
+				//修改元素内容
+				sender.innerHTML = "颜色被改变成了绿色";
+			}
+			function mouseOutFunc(sender){
+				sender.style.backgroundColor = "red";
+				sender.innerHTML = "颜色恢复成了红色";
+			}
+			function addNewNode(){
+         //创建新的<h1>元素
+		 var newPara = document.createElement("h1");
+		 //如需向<h1>元素添加文本,您必须首先创建文本节点,线面这段代码创建了一个新的文本
+		 var newTextNode = document.createTextNode("一个新的标题文本内容");
+		 //然后您必须向<h1>元素追加这个文本节点
+		 newPara.appendChild(newTextNode);
+		 /*最后,您必须向一个已有的元素追加这个新的元素*/
+		 //下面这段代码是根据 id 找到一个已有的元素
+		 var fatherHtmlElement = document.getElementById("paragraph2");
+		 //这段代码向这个已有的元素追加新的元素
+		 fatherHtmlElement.appendChild(newPara);
+			}
+			
+			function deleteNode(){
+				//找到需要被删除的元素
+				var toBeDeletedHtml = document.getElementById("paragraph3");
+				//找到需要被删除的元素的父元素
+				var parent = document.getElementById("fatherDiv");
+				//从父元素中删除子元素
+				parent.removeChild(toBeDeletedHtml);
+			}
+			
+			function deleteNodeWithAnotherWay(){
+				/*提示:如果能够在不引用父元素的情况下删除某一个元素,就太好了
+				 不过很遗憾, DOM 需要清楚您需要删除的元素以及他的父元素
+				 * */
+				//下面这是常用的解决方案:找到您希望删除的子元素,然后使用其 parentNode 属性来找到父元素(这十分类似于 objective-c 当中的`[childView removeFromSuperView];`这个方法)
+				var toBeDeletedHtml = document.getElementById("paragraph3");
+				toBeDeletedHtml.parentNode.removeChild(toBeDeletedHtml);
+			}
+		</script>
+	</body>
+</html>
