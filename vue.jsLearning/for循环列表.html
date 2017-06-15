@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+<!-- v-for指令迭代模板数组 -->
+  <ol>
+  <template v-for="site in sites">  
+  <li >
+      {{ site.name }}
+    </li>
+    <li>$$$$$$$$$$$$$$$$$$$$$$$$$$$</li>
+    </template>
+  
+  </ol>
+  
+  <!-- v-for指令迭代普通数组 -->
+  <ul>
+    <li v-for ="element in elements">
+      {{element.name}}
+    </li>
+  </ul>
+
+<!-- v-for指令迭代对象 -->
+  <ul>
+    <li v-for = "value in person">
+      {{value}}
+    </li>
+  </ul>
+<!--  v-for指令迭代整数 -->
+  <ul>
+    <li v-for = "value in 10">
+      {{value}}
+    </li>
+  </ul>
+   
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    sites: [
+      { name: 'Runoob' },
+      { name: 'Google' },
+      { name: 'Taobao' }
+    ],
+    elements:[
+      {name:'三国演义'},
+      {name:'红楼梦'},
+      {name:'水浒传'},
+      {name:'西游记'}
+    ],
+   person: {
+      name: 'AnAn',
+      url: 'http://github.com/AAChartModel/AAChartKit',
+      slogan: 'change mineWorld',
+      age:26,
+      isVirginOrNot:true
+    }
+  }
+})
+</script>
+</body>
+</html>

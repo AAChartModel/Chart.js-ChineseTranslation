@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<style>
+.active {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+.text-danger {
+	background: red;
+}
+	.changeToBeColdColor{
+	background:blue;
+	}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="static"
+     v-bind:class="{ active: isActive, 'text-danger': hasError,changeToBeColdColor:calmDown }">
+  </div>
+	
+</div>
+<button v-on:click="changeTheTextFontSize">点击修改文字颜色</button>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    isActive: true,
+	hasError: true,
+	calmDown:false
+  },
+	changeTheTextFontSize:function(){
+ 
+    this.calmDown= true;
+
+  }
+})
+</script>
+</body>
+</html>
