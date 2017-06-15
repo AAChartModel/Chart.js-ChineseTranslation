@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue.js 条件循环</title>
+			<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js">
+	  </script>
+	</head>
+	<body>
+		<div id="app">
+			<button v-on:click="hideTheParagraph()">
+				点击按钮让段落中的文字消失
+			</button>
+			<template v-if="visible">
+				<p>love of my life donnot leave me </p>
+				<p>you taken my heart and love you leave me</p>
+				<p>love of my life cannot you see </p>
+			</template>
+		</div>
+		<div id="app2">
+			<button v-on:click="changeNumberType()">
+				点击按钮改变数字类型
+			</button>
+			<div v-if="numberType ===1">
+				<h3>1111111111</h3>
+				</div>
+			<div v-else-if="numberType===2">
+				<h4>2222222222222</h4>
+				</div>
+			<div v-else-if="numberType===3">
+				<h5>3333333333333333</h5>
+				</div>
+			<div v-else="numberType===4">
+				<h6>4444444444444444444</h6>
+				</div>
+			</div>
+			<div id="app3">
+				<button v-on:click="hideTheString()">点击查看 v-show 指令的作用</button>
+				<p v-show="seen">这是一个安静的晚上<br />
+				一个人窝在摇椅里乘凉</p>
+			</p>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					visible:true
+				},
+				methods:{
+					 hideTheParagraph:function(){
+					 	if (this.visible ===true) {
+					 		this.visible = false
+					 	} else{
+					 		this.visible = true
+					 	}
+				}
+				}
+			})
+			new Vue({
+				el:'#app2',
+				data:{
+					numberType:1,
+				},
+				methods:{
+					 changeNumberType:function(){
+					this.numberType = this.numberType+1
+					if(this.numberType ===5){
+						this.numberType =1
+					}
+				}
+				}
+			})
+		    new Vue({
+		    	el:'#app3',
+		    	data:{
+		    		seen:true
+		    	},
+		    	methods:{
+		    		hideTheString:function(){
+		    			this.seen = false
+		    		}
+		    	}
+		    })
+		</script>
+	</body>
+</html>

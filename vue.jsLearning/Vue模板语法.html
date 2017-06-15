@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue.js模板语法</title>
+		<!--数据绑定-->
+		<script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js">
+	  </script>
+	</head>
+	<body>
+		<div id="app">
+			<!--数据绑定最常见的形式就是使用{{...}}的文本插值-->
+			<p>{{message}}</p>
+		</div>
+		<div id="app2">
+			<!--使用 html 指令输出 html 代码-->
+			<div v-html="message2">
+			</div>
+		</div>
+		<div id="app3">
+			<button v-on:click="hideTheLyric()">点击按钮,隐藏歌词内容</button>
+		<template v-if="seen">
+			<p>love of my life donnot leave me </p>
+			<p> you taken my heart and love you leave me</p>
+			<p> love of my life cannot you see</p>
+		</template>
+		</div>
+		<div id="app4">
+			<!--使用v-model 指令能够实现双向数据绑定-->
+			<h3>{{message}}</h3>
+			<h4>{{message}}</h4>
+			<h5>{{message}}</h5>
+			<input v-model="message" style="width: 200px;height: 40px;">
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					message: 'Hello Vue.js!'
+				}
+			})
+			new Vue({
+				el:'#app2',
+				data:{
+					message2:'<h1>使用 v-html 指令输出 html 代码</h1>'
+				}
+			})
+			new Vue({
+				el:'#app3',
+				data:{
+					seen:true
+				},
+				methods:{
+					hideTheLyric:function(){
+						this.seen = false,
+						document.write("<h1>输出一个新的 html 元素</h1>")
+					}
+				}
+			})
+			new Vue({
+				el:'#app4',
+				data:{
+					message:"现在已经实现了<input>输入框与<h3>,<h4>,<h5>的数据绑定工作了",
+				}
+			})
+		</script>
+	</body>
+</html>
